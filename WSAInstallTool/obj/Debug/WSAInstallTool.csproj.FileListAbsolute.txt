@@ -9,3 +9,4 @@ D:\项目目录\WSAInstallTool\WSAInstallTool\obj\Debug\WSAInstallTool.pdb
 D:\项目目录\WSAInstallTool\WSAInstallTool\obj\Debug\WSAInstallTool.InstallForm.resources
 D:\项目目录\WSAInstallTool\WSAInstallTool\obj\Debug\WSAInstallTool.SettingForm.resources
 D:\项目目录\WSAInstallTool\WSAInstallTool\obj\Debug\WSAInstallTool.DeviceSelectForm.resources
+D:\项目目录\WSAInstallTool\WSAInstallTool\obj\Debug\WSAInstallTool.AboutBox.resources

@@ -55,7 +55,7 @@ namespace WSAInstallTool
             RegistryKey hklm = Registry.ClassesRoot;
             RegistryKey hkSoftWare = hklm.CreateSubKey(@"HYWINXYZWSATOOL\shell\open\command");
             string softwarePath = System.Threading.Thread.GetDomain().BaseDirectory;
-            hkSoftWare.SetValue("", "\"" + softwarePath + "\\WSAInstallTool.exe\" \"%1\"", RegistryValueKind.String);
+            hkSoftWare.SetValue("", "\"" + softwarePath + "WSAInstallTool.exe\" \"%1\"", RegistryValueKind.String);
             
             // 2.创建.apk
             RegistryKey apkSoftWare = hklm.CreateSubKey(@".apk");

@@ -59,7 +59,7 @@
             // 
             // iconPictureBox
             // 
-            this.iconPictureBox.Location = new System.Drawing.Point(529, 16);
+            this.iconPictureBox.Location = new System.Drawing.Point(582, 17);
             this.iconPictureBox.Name = "iconPictureBox";
             this.iconPictureBox.Size = new System.Drawing.Size(139, 134);
             this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,7 +69,7 @@
             // permissionLabel
             // 
             this.permissionLabel.AutoSize = true;
-            this.permissionLabel.Location = new System.Drawing.Point(23, 165);
+            this.permissionLabel.Location = new System.Drawing.Point(23, 180);
             this.permissionLabel.Name = "permissionLabel";
             this.permissionLabel.Size = new System.Drawing.Size(87, 15);
             this.permissionLabel.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             // installButton
             // 
-            this.installButton.Location = new System.Drawing.Point(529, 261);
+            this.installButton.Location = new System.Drawing.Point(589, 345);
             this.installButton.Name = "installButton";
             this.installButton.Size = new System.Drawing.Size(132, 45);
             this.installButton.TabIndex = 4;
@@ -97,9 +97,9 @@
             // 
             // installProgressBar
             // 
-            this.installProgressBar.Location = new System.Drawing.Point(26, 324);
+            this.installProgressBar.Location = new System.Drawing.Point(26, 406);
             this.installProgressBar.Name = "installProgressBar";
-            this.installProgressBar.Size = new System.Drawing.Size(635, 23);
+            this.installProgressBar.Size = new System.Drawing.Size(695, 23);
             this.installProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.installProgressBar.TabIndex = 5;
             this.installProgressBar.Visible = false;
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 359);
+            this.ClientSize = new System.Drawing.Size(752, 441);
             this.Controls.Add(this.installProgressBar);
             this.Controls.Add(this.installButton);
             this.Controls.Add(this.appNameLabel);
@@ -119,6 +119,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InstallForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "APK安装";

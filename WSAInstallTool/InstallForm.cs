@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -55,8 +56,16 @@ namespace WSAInstallTool
             permissionLabel.Text = "权限：\n" + aaptParseUtil.GetPermissionEasy();
             appNameLabel.Text = aaptParseUtil.GetAppName();
 
-            string iconPath = aaptParseUtil.GetApkIcon(apkPath);
-            iconPictureBox.Load(iconPath);
+            // 获取APK图标
+            try
+            {
+                string iconPath = aaptParseUtil.GetApkIcon(apkPath);
+                iconPictureBox.Load(iconPath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("load logo error => " + ex.Message);
+            }
 
         }
 
@@ -105,19 +114,26 @@ namespace WSAInstallTool
                 List<string> devicesList = new List<string>();
                 foreach (string device in devices)
                 {
-                    string [] deviceNames = device.Split(' ');
+                    Debug.WriteLine(device);
+
+                    string[] deviceNames = device.Split('\t');
+                    Debug.WriteLine(deviceNames.Length);
                     if (deviceNames.Length == 2)
                     {
+
                         devicesList.Add(deviceNames[0]);
                     }
                 }
-              
+
+
+
                 using (DeviceSelectForm deviceSelectForm = new DeviceSelectForm(devicesList))
                 {
                     //MessageBox.Show(deviceSelectForm.ShowDialog() + "");
                     //Console.WriteLine("....." + deviceSelectForm.ShowDialog());
                     if (deviceSelectForm.ShowDialog() == DialogResult.Cancel)
                     {
+
                         if (string.IsNullOrEmpty(deviceSelectForm.resultDevice)) return;
 
                         // 安装选择的设备
@@ -128,6 +144,8 @@ namespace WSAInstallTool
                         installProgressBar.Visible = true;
                         extraCommand = "-s " + deviceSelectForm.resultDevice + " ";
 
+                        Debug.Write("extraCommand => " + extraCommand);
+
                         //CMDUtil.ExecCMD("adb.exe", "install " + apkPath);
                         //ThreadStart ts = new ThreadStart(InstallApkCMD);
 
@@ -135,8 +153,13 @@ namespace WSAInstallTool
                         thread.Start(installCallback);
                     }
                 }
-            }
 
+            }
+            else
+            {
+                // 3. 其它情况
+                MessageBox.Show(deviceResult);
+            }
             //Console.WriteLine(devices[0]);
 
             //CMDUtil.ExecCMD("adb.exe", "install " + apkPath);
@@ -153,16 +176,16 @@ namespace WSAInstallTool
             callback(result);
         }
 
-        /// <summary>
-        /// 执行安装APK的命令
-        /// </summary>
-        /// <param name="obj"></param>
-        private void InstallApkCMDWithDevice(object obj)
-        {
-            CmdCallbackDelegate callback = obj as CmdCallbackDelegate;
-            string result = CMDUtil.ExecCMD("adb.exe", "install device" + apkPath);
-            callback(result);
-        }
+        ///// <summary>
+        ///// 执行安装APK的命令
+        ///// </summary>
+        ///// <param name="obj"></param>
+        //private void InstallApkCMDWithDevice(object obj)
+        //{
+        //    CmdCallbackDelegate callback = obj as CmdCallbackDelegate;
+        //    string result = CMDUtil.ExecCMD("adb.exe", "install device" + apkPath);
+        //    callback(result);
+        //}
 
         /// <summary>
         /// 安装完成
@@ -175,6 +198,15 @@ namespace WSAInstallTool
                 installButton.Enabled = true;
                 installButton.Text = "安装";
                 installProgressBar.Visible = false;
+
+                if (!string.IsNullOrEmpty(result) && result.Replace("Performing Streamed Install", "").Trim() == "Success")
+                {
+                    MessageBox.Show("安装成功！");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: " + result);
+                }
             }));
         }
     }

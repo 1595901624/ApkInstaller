@@ -1,23 +1,27 @@
 # WSAInstallTool
 
 #### 介绍
-windows下自动关联APK文件且安装到手机上
+Windows下自动关联APK文件且双击APK安装到手机上。支持Win10 和 Win11，理论上也支持Win7。如无法运行，请安装.Net Framework 4.5.2。该软件主要服务于win11的Android子系统和Android开发者。
 
 #### 软件架构
-软件架构说明
+软件采用C# + WPF开发。
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+下载解压即可。
+
+#### 软件截图
+
+![双击APK安装](https://gitee.com/haoyu3/photo_gallery/raw/master/rust/other/image-20211104171142948.png)
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+如无法运行，请安装.Net Framework 4.5.2。
+解压后，右键点击`WSAInstallTool.exe`，选择**以管理员身份运行**。
+
+安装：点击一键安装。
+卸载：点击一键清除，然后删除文件夹即可。
 
 #### 参与贡献
 
@@ -27,11 +31,14 @@ windows下自动关联APK文件且安装到手机上
 4.  新建 Pull Request
 
 
-#### 特技
+#### Bug提交
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+请直接提交Issue
+
+#### 版本计划
+
+1、支持APK图标显示
+
+2、支持Android所有权限提示
+
+3、UWP版本

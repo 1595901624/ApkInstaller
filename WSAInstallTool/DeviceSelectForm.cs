@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,13 +31,18 @@ namespace WSAInstallTool
                 deviceComboBox.Items.Add(str);
             }
 
-            deviceComboBox.SelectedIndex = 0;
+            if (mDevcies.Count > 0)
+            {
+                deviceComboBox.SelectedIndex = 0;
+            }
+            
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.resultDevice = deviceComboBox.SelectedText;
+            Debug.Write("deviceComboBox.SelectedText => " + mDevcies[deviceComboBox.SelectedIndex]);
+            this.resultDevice = mDevcies[deviceComboBox.SelectedIndex];
         }
 
         private void DeviceSelectForm_FormClosing(object sender, FormClosingEventArgs e)
