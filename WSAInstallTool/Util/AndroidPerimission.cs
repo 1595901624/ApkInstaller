@@ -1,0 +1,250 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WSAInstallTool
+{
+    class AndroidPerimission
+    {
+
+        //public static readonly AndroidPerimission WRITE_EXTERNAL_STORAGE = new AndroidPerimission("android.permission.WRITE_EXTERNAL_STORAGE", "允许程序写入外部存储");
+        public static readonly AndroidPerimission ACCESS_COARSE_LOCATION = new AndroidPerimission("android.permission.ACCESS_COARSE_LOCATION", "通过WiFi或移动基站的方式获取用户粗略的经纬度信息，定位精度大概误差在30~1500米");
+        public static readonly AndroidPerimission ACCESS_FINE_LOCATION = new AndroidPerimission("android.permission.ACCESS_FINE_LOCATION", "通过GPS芯片接收卫星的定位信息，定位精度达10米以内");
+        public static readonly AndroidPerimission ACCESS_LOCATION_EXTRA_COMMANDS = new AndroidPerimission("android.permission.ACCESS_LOCATION_EXTRA_COMMANDS", "允许程序访问额外的定位提供者指令");
+        public static readonly AndroidPerimission ACCESS_MOCK_LOCATION = new AndroidPerimission("android.permission.ACCESS_MOCK_LOCATION", "获取模拟定位信息，一般用于帮助开发者调试应用");
+        public static readonly AndroidPerimission ACCESS_NETWORK_STATE = new AndroidPerimission("android.permission.ACCESS_NETWORK_STATE", "获取网络信息状态，如当前的网络连接是否有效");
+        public static readonly AndroidPerimission ACCESS_SURFACE_FLINGER = new AndroidPerimission("android.permission.ACCESS_SURFACE_FLINGER", "Android平台上底层的图形显示支持，一般用于游戏或照相机预览界面和底层模式的屏幕截图");
+        public static readonly AndroidPerimission ACCESS_WIFI_STATE = new AndroidPerimission("android.permission.ACCESS_WIFI_STATE", "获取当前WiFi接入的状态以及WLAN热点的信息");
+        public static readonly AndroidPerimission BATTERY_STATS = new AndroidPerimission("android.permission.BATTERY_STATS", "获取电池电量统计信息");
+        public static readonly AndroidPerimission BLUETOOTH = new AndroidPerimission("android.permission.BLUETOOTH", "允许程序连接配对过的蓝牙设备");
+        public static readonly AndroidPerimission BLUETOOTH_ADMIN = new AndroidPerimission("android.permission.BLUETOOTH_ADMIN", "允许程序进行发现和配对新的蓝牙设备");
+        public static readonly AndroidPerimission BRICK = new AndroidPerimission("android.permission.BRICK", "【危险权限】能够禁止使用手机");
+        public static readonly AndroidPerimission BROADCAST_PACKAGE_REMOVED = new AndroidPerimission("android.permission.BROADCAST_PACKAGE_REMOVED", "当一个应用在删除时触发一个广播");
+        public static readonly AndroidPerimission BROADCAST_SMS = new AndroidPerimission("android.permission.BROADCAST_SMS", "当收到短信时触发一个广播");
+        public static readonly AndroidPerimission BROADCAST_STICKY = new AndroidPerimission("android.permission.BROADCAST_STICKY", "允许一个程序收到广播后快速收到下一个广播");
+        public static readonly AndroidPerimission BROADCAST_WAP_PUSH = new AndroidPerimission("android.permission.BROADCAST_WAP_PUSH", "WAP PUSH服务收到后触发一个广播");
+        public static readonly AndroidPerimission CALL_PHONE = new AndroidPerimission("android.permission.CALL_PHONE", "允许程序从非系统拨号器里输入电话号码");
+        public static readonly AndroidPerimission CALL_PRIVILEGED = new AndroidPerimission("android.permission.CALL_PRIVILEGED", "允许程序拨打电话，替换系统的拨号器界面");
+        public static readonly AndroidPerimission CAMERA = new AndroidPerimission("android.permission.CAMERA", "允许访问摄像头进行拍照");
+        public static readonly AndroidPerimission CHANGE_CONFIGURATION = new AndroidPerimission("android.permission.CHANGE_CONFIGURATION", "允许当前应用改变配置，如定位");
+        public static readonly AndroidPerimission CHANGE_NETWORK_STATE = new AndroidPerimission("android.permission.CHANGE_NETWORK_STATE", "改变网络状态如是否能联网");
+        public static readonly AndroidPerimission CHANGE_WIFI_MULTICAST_STATE = new AndroidPerimission("android.permission.CHANGE_WIFI_MULTICAST_STATE", "改变WiFi多播状态");
+        public static readonly AndroidPerimission CHANGE_WIFI_STATE = new AndroidPerimission("android.permission.CHANGE_WIFI_STATE", "改变WiFi状态");
+        public static readonly AndroidPerimission CLEAR_APP_CACHE = new AndroidPerimission("android.permission.CLEAR_APP_CACHE", "清除应用缓存");
+        public static readonly AndroidPerimission CLEAR_APP_USER_DATA = new AndroidPerimission("android.permission.CLEAR_APP_USER_DATA", "清除应用的用户数据");
+        public static readonly AndroidPerimission CONTROL_LOCATION_UPDATES = new AndroidPerimission("android.permission.CONTROL_LOCATION_UPDATES", "允许获得移动网络定位信息改变");
+        public static readonly AndroidPerimission DELETE_CACHE_FILES = new AndroidPerimission("android.permission.DELETE_CACHE_FILES", "允许应用删除缓存文件");
+        public static readonly AndroidPerimission DELETE_PACKAGES = new AndroidPerimission("android.permission.DELETE_PACKAGES", "允许程序删除应用");
+        public static readonly AndroidPerimission DEVICE_POWER = new AndroidPerimission("android.permission.DEVICE_POWER", "允许访问底层电源管理");
+        public static readonly AndroidPerimission DIAGNOSTIC = new AndroidPerimission("android.permission.DIAGNOSTIC", "允许程序到RW到诊断资源");
+        public static readonly AndroidPerimission DISABLE_KEYGUARD = new AndroidPerimission("android.permission.DISABLE_KEYGUARD", "允许程序禁用键盘锁");
+        public static readonly AndroidPerimission DUMP = new AndroidPerimission("android.permission.DUMP", "允许程序获取系统dump信息并转存");
+        public static readonly AndroidPerimission EXPAND_STATUS_BAR = new AndroidPerimission("android.permission.EXPAND_STATUS_BAR", "允许程序扩展或收缩状态栏");
+        public static readonly AndroidPerimission FACTORY_TEST = new AndroidPerimission("android.permission.FACTORY_TEST", "允许程序运行工厂测试模式");
+        public static readonly AndroidPerimission FLASHLIGHT = new AndroidPerimission("android.permission.FLASHLIGHT", "允许访问闪光灯");
+        public static readonly AndroidPerimission FORCE_BACK = new AndroidPerimission("android.permission.FORCE_BACK", "允许程序强制使用back后退按键，无论页面是否在顶层");
+        public static readonly AndroidPerimission GET_PACKAGE_SIZE = new AndroidPerimission("android.permission.GET_PACKAGE_SIZE", "获取应用的文件大小");
+        public static readonly AndroidPerimission GET_TASKS = new AndroidPerimission("android.permission.GET_TASKS", "允许程序获取当前或最近运行的应用");
+        public static readonly AndroidPerimission GLOBAL_SEARCH = new AndroidPerimission("android.permission.GLOBAL_SEARCH", "允许程序使用全局搜索功能");
+        public static readonly AndroidPerimission HARDWARE_TEST = new AndroidPerimission("android.permission.HARDWARE_TEST", "访问硬件辅助设备，用于硬件测试");
+        public static readonly AndroidPerimission INJECT_EVENTS = new AndroidPerimission("android.permission.INJECT_EVENTS", "允许访问本程序的底层事件，获取按键、轨迹球的事件流");
+        public static readonly AndroidPerimission INSTALL_LOCATION_PROVIDER = new AndroidPerimission("android.permission.INSTALL_LOCATION_PROVIDER", "安装定位提供");
+        public static readonly AndroidPerimission INSTALL_PACKAGES = new AndroidPerimission("android.permission.INSTALL_PACKAGES", "允许程序安装应用");
+        public static readonly AndroidPerimission INTERNAL_SYSTEM_WINDOW = new AndroidPerimission("android.permission.INTERNAL_SYSTEM_WINDOW", "允许程序打开内部窗口，不对第三方应用程序开放此权限");
+        public static readonly AndroidPerimission INTERNET = new AndroidPerimission("android.permission.INTERNET", "访问网络连接，可能产生GPRS流量");
+        public static readonly AndroidPerimission KILL_BACKGROUND_PROCESSES = new AndroidPerimission("android.permission.KILL_BACKGROUND_PROCESSES", "允许程序调用killBackgroundProcesses(String);.方法结束后台进程");
+        public static readonly AndroidPerimission MANAGE_ACCOUNTS = new AndroidPerimission("android.permission.MANAGE_ACCOUNTS", "允许程序管理AccountManager中的账户列表");
+        public static readonly AndroidPerimission MANAGE_APP_TOKENS = new AndroidPerimission("android.permission.MANAGE_APP_TOKENS", "管理创建、摧毁、Z轴顺序，仅用于系统");
+        public static readonly AndroidPerimission MTWEAK_USER = new AndroidPerimission("android.permission.MTWEAK_USER", "允许mTweak用户访问高级系统权限");
+        public static readonly AndroidPerimission MTWEAK_FORUM = new AndroidPerimission("android.permission.MTWEAK_FORUM", "允许使用mTweak社区权限");
+        public static readonly AndroidPerimission MASTER_CLEAR = new AndroidPerimission("android.permission.MASTER_CLEAR", "允许程序执行软格式化，删除系统配置信息");
+        public static readonly AndroidPerimission MODIFY_AUDIO_SETTINGS = new AndroidPerimission("android.permission.MODIFY_AUDIO_SETTINGS", "修改声音设置信息");
+        public static readonly AndroidPerimission MODIFY_PHONE_STATE = new AndroidPerimission("android.permission.MODIFY_PHONE_STATE", "修改电话状态，如飞行模式，但不包含替换系统拨号器界面");
+        public static readonly AndroidPerimission MOUNT_FORMAT_FILESYSTEMS = new AndroidPerimission("android.permission.MOUNT_FORMAT_FILESYSTEMS", "格式化可移动文件系统，比如格式化清空SD卡");
+        public static readonly AndroidPerimission MOUNT_UNMOUNT_FILESYSTEMS = new AndroidPerimission("android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "挂载、反挂载外部文件系统");
+        public static readonly AndroidPerimission NFC = new AndroidPerimission("android.permission.NFC", "允许程序执行NFC近距离通讯操作，用于移动支持");
+        public static readonly AndroidPerimission PERSISTENT_ACTIVITY = new AndroidPerimission("android.permission.PERSISTENT_ACTIVITY", "创建一个永久的Activity，该功能标记为将来将被移除");
+        public static readonly AndroidPerimission PROCESS_OUTGOING_CALLS = new AndroidPerimission("android.permission.PROCESS_OUTGOING_CALLS", "允许程序监视，修改或放弃播出电话");
+        public static readonly AndroidPerimission READ_CALENDAR = new AndroidPerimission("android.permission.READ_CALENDAR", "允许程序读取用户的日程信息");
+        public static readonly AndroidPerimission READ_CONTACTS = new AndroidPerimission("android.permission.READ_CONTACTS", "允许应用访问联系人通讯录信息");
+        public static readonly AndroidPerimission READ_FRAME_BUFFER = new AndroidPerimission("android.permission.READ_FRAME_BUFFER", "读取帧缓存用于屏幕截图");
+        public static readonly AndroidPerimission READ_HISTORY_BOOKMARKS = new AndroidPerimission("com.android.browser.permission.READ_HISTORY_BOOKMARKS", "读取浏览器收藏夹和历史记录");
+        public static readonly AndroidPerimission READ_INPUT_STATE = new AndroidPerimission("android.permission.READ_INPUT_STATE", "读取当前键的输入状态，仅用于系统");
+        public static readonly AndroidPerimission READ_LOGS = new AndroidPerimission("android.permission.READ_LOGS", "读取系统底层日志");
+        public static readonly AndroidPerimission READ_PHONE_STATE = new AndroidPerimission("android.permission.READ_PHONE_STATE", "访问电话状态");
+        public static readonly AndroidPerimission READ_SMS = new AndroidPerimission("android.permission.READ_SMS", "读取短信内容");
+        public static readonly AndroidPerimission READ_EXTERNAL_STORAGE = new AndroidPerimission("android.permission.READ_EXTERNAL_STORAGE", "允许程序读取内部存储");
+        public static readonly AndroidPerimission READ_SYNC_SETTINGS = new AndroidPerimission("android.permission.READ_SYNC_SETTINGS", "读取同步设置，读取Google在线同步设置");
+        public static readonly AndroidPerimission READ_SYNC_STATS = new AndroidPerimission("android.permission.READ_SYNC_STATS", "读取同步状态，获得Google在线同步状态");
+        public static readonly AndroidPerimission REBOOT = new AndroidPerimission("android.permission.REBOOT", "允许程序重新启动设备");
+        public static readonly AndroidPerimission RECEIVE_BOOT_COMPLETED = new AndroidPerimission("android.permission.RECEIVE_BOOT_COMPLETED", "允许程序开机自动运行");
+        public static readonly AndroidPerimission RECEIVE_MMS = new AndroidPerimission("android.permission.RECEIVE_MMS", "接收彩信");
+        public static readonly AndroidPerimission RECEIVE_SMS = new AndroidPerimission("android.permission.RECEIVE_SMS", "接收短信");
+        public static readonly AndroidPerimission RECEIVE_WAP_PUSH = new AndroidPerimission("android.permission.RECEIVE_WAP_PUSH", "接收WAP PUSH信息");
+        public static readonly AndroidPerimission RECORD_AUDIO = new AndroidPerimission("android.permission.RECORD_AUDIO", "录制声音通过手机或耳机的麦克");
+        public static readonly AndroidPerimission REORDER_TASKS = new AndroidPerimission("android.permission.REORDER_TASKS", "重新排序系统Z轴运行中的任务");
+        public static readonly AndroidPerimission RESTART_PACKAGES = new AndroidPerimission("android.permission.RESTART_PACKAGES", "结束任务通过restartPackage(String);方法，该方式将在外来放弃");
+        public static readonly AndroidPerimission SEND_SMS = new AndroidPerimission("android.permission.SEND_SMS", "发送短信");
+        public static readonly AndroidPerimission SET_ACTIVITY_WATCHER = new AndroidPerimission("android.permission.SET_ACTIVITY_WATCHER", "设置Activity观察器一般用于monkey测试");
+        public static readonly AndroidPerimission SET_ALARM = new AndroidPerimission("com.android.alarm.permission.SET_ALARM", "设置闹铃提醒");
+        public static readonly AndroidPerimission SET_ALWAYS_FINISH = new AndroidPerimission("android.permission.SET_ALWAYS_FINISH", "设置程序在后台是否总是退出");
+        public static readonly AndroidPerimission SET_ANIMATION_SCALE = new AndroidPerimission("android.permission.SET_ANIMATION_SCALE", "设置全局动画缩放");
+        public static readonly AndroidPerimission SET_DEBUG_APP = new AndroidPerimission("android.permission.SET_DEBUG_APP", "设置调试程序，一般用于开发");
+        public static readonly AndroidPerimission SET_ORIENTATION = new AndroidPerimission("android.permission.SET_ORIENTATION", "设置屏幕方向为横屏或标准方式显示，不用于普通应用");
+        public static readonly AndroidPerimission SET_PREFERRED_APPLICATIONS = new AndroidPerimission("android.permission.SET_PREFERRED_APPLICATIONS，设置应用的参数", "已不再工作具体查看addPackageToPreferred(String); 介绍");
+        public static readonly AndroidPerimission SET_PROCESS_LIMIT = new AndroidPerimission("android.permission.SET_PROCESS_LIMIT", "允许程序设置最大的进程数量的限制");
+        public static readonly AndroidPerimission SET_TIME = new AndroidPerimission("android.permission.SET_TIME", "设置系统时间");
+        public static readonly AndroidPerimission SET_TIME_ZONE = new AndroidPerimission("android.permission.SET_TIME_ZONE", "设置系统时区");
+        public static readonly AndroidPerimission SET_WALLPAPER = new AndroidPerimission("android.permission.SET_WALLPAPER", "设置桌面壁纸");
+        public static readonly AndroidPerimission SET_WALLPAPER_HINTS = new AndroidPerimission("android.permission.SET_WALLPAPER_HINTS", "设置壁纸建议");
+        public static readonly AndroidPerimission SIGNAL_PERSISTENT_PROCESSES = new AndroidPerimission("android.permission.SIGNAL_PERSISTENT_PROCESSES", "发送一个永久的进程信号");
+        public static readonly AndroidPerimission STATUS_BAR = new AndroidPerimission("android.permission.STATUS_BAR", "允许程序打开、关闭、禁用状态栏");
+        public static readonly AndroidPerimission SUBSCRIBED_FEEDS_READ = new AndroidPerimission("android.permission.SUBSCRIBED_FEEDS_READ", "访问订阅信息的数据库");
+        public static readonly AndroidPerimission SUBSCRIBED_FEEDS_WRITE = new AndroidPerimission("android.permission.SUBSCRIBED_FEEDS_WRITE", "写入或修改订阅内容的数据库");
+        public static readonly AndroidPerimission SYSTEM_ALERT_WINDOW = new AndroidPerimission("android.permission.SYSTEM_ALERT_WINDOW", "显示系统窗口");
+        public static readonly AndroidPerimission UPDATE_DEVICE_STATS = new AndroidPerimission("android.permission.UPDATE_DEVICE_STATS", "更新设备状态");
+        public static readonly AndroidPerimission USE_CREDENTIALS = new AndroidPerimission("android.permission.USE_CREDENTIALS", "允许程序请求验证从AccountManager");
+        public static readonly AndroidPerimission USE_SIP = new AndroidPerimission("android.permission.USE_SIP", "允许程序使用SIP视频服务");
+        public static readonly AndroidPerimission VIBRATE = new AndroidPerimission("android.permission.VIBRATE", "允许振动");
+        public static readonly AndroidPerimission WAKE_LOCK = new AndroidPerimission("android.permission.WAKE_LOCK", "允许程序在手机屏幕关闭后后台进程仍然运行");
+        public static readonly AndroidPerimission WRITE_APN_SETTINGS = new AndroidPerimission("android.permission.WRITE_APN_SETTINGS", "写入网络GPRS接入点设置");
+        public static readonly AndroidPerimission WRITE_CALENDAR = new AndroidPerimission("android.permission.WRITE_CALENDAR", "写入日程，但不可读取");
+        public static readonly AndroidPerimission WRITE_CONTACTS = new AndroidPerimission("android.permission.WRITE_CONTACTS", "写入联系人，但不可读取");
+        public static readonly AndroidPerimission WRITE_EXTERNAL_STORAGE = new AndroidPerimission("android.permission.WRITE_EXTERNAL_STORAGE", "允许程序写入外部存储，如SD卡上写文件");
+        public static readonly AndroidPerimission WRITE_GSERVICES = new AndroidPerimission("android.permission.WRITE_GSERVICES", "允许程序写入Google Map服务数据");
+        public static readonly AndroidPerimission WRITE_HISTORY_BOOKMARKS = new AndroidPerimission("com.android.browser.permission.WRITE_HISTORY_BOOKMARKS", "写入浏览器历史记录或收藏夹，但不可读取");
+        public static readonly AndroidPerimission WRITE_SECURE_SETTINGS = new AndroidPerimission("android.permission.WRITE_SECURE_SETTINGS", "允许程序读写系统安全敏感的设置项");
+        public static readonly AndroidPerimission WRITE_SETTINGS = new AndroidPerimission("android.permission.WRITE_SETTINGS", "允许读写系统设置项");
+        public static readonly AndroidPerimission WRITE_SMS = new AndroidPerimission("android.permission.WRITE_SMS", "允许编写短信");
+        public static readonly AndroidPerimission WRITE_SYNC_SETTINGS = new AndroidPerimission("android.permission.WRITE_SYNC_SETTINGS", "写入Google在线同步设置");
+
+
+        public String permission { get; private set; }
+        public String description { get; private set; }
+
+        public AndroidPerimission(String perimissionName, String description)
+        {
+            this.permission = perimissionName;
+            this.description = description;
+        }
+
+        public static IEnumerable<AndroidPerimission> Values
+        {
+            get
+            {
+                yield return READ_EXTERNAL_STORAGE;
+                yield return WRITE_EXTERNAL_STORAGE;
+                yield return ACCESS_COARSE_LOCATION;
+                yield return ACCESS_FINE_LOCATION;
+                yield return ACCESS_LOCATION_EXTRA_COMMANDS;
+                yield return ACCESS_MOCK_LOCATION;
+                yield return ACCESS_NETWORK_STATE;
+                yield return ACCESS_SURFACE_FLINGER;
+                yield return ACCESS_WIFI_STATE;
+                yield return BATTERY_STATS;
+                yield return BLUETOOTH;
+                yield return BLUETOOTH_ADMIN;
+                yield return BRICK;
+                yield return BROADCAST_PACKAGE_REMOVED;
+                yield return BROADCAST_SMS;
+                yield return BROADCAST_STICKY;
+                yield return BROADCAST_WAP_PUSH;
+                yield return CALL_PHONE;
+                yield return CALL_PRIVILEGED;
+                yield return CAMERA;
+                yield return CHANGE_CONFIGURATION;
+                yield return CHANGE_NETWORK_STATE;
+                yield return CHANGE_WIFI_MULTICAST_STATE;
+                yield return CHANGE_WIFI_STATE;
+                yield return CLEAR_APP_CACHE;
+                yield return CLEAR_APP_USER_DATA;
+                yield return CONTROL_LOCATION_UPDATES;
+                yield return DELETE_CACHE_FILES;
+                yield return DELETE_PACKAGES;
+                yield return DEVICE_POWER;
+                yield return DIAGNOSTIC;
+                yield return DISABLE_KEYGUARD;
+                yield return DUMP;
+                yield return EXPAND_STATUS_BAR;
+                yield return FACTORY_TEST;
+                yield return FLASHLIGHT;
+                yield return FORCE_BACK;
+                yield return GET_PACKAGE_SIZE;
+                yield return GET_TASKS;
+                yield return GLOBAL_SEARCH;
+                yield return HARDWARE_TEST;
+                yield return INJECT_EVENTS;
+                yield return INSTALL_LOCATION_PROVIDER;
+                yield return INSTALL_PACKAGES;
+                yield return INTERNAL_SYSTEM_WINDOW;
+                yield return INTERNET;
+                yield return KILL_BACKGROUND_PROCESSES;
+                yield return MANAGE_ACCOUNTS;
+                yield return MANAGE_APP_TOKENS;
+                yield return MTWEAK_USER;
+                yield return MTWEAK_FORUM;
+                yield return MASTER_CLEAR;
+                yield return MODIFY_AUDIO_SETTINGS;
+                yield return MODIFY_PHONE_STATE;
+                yield return MOUNT_FORMAT_FILESYSTEMS;
+                yield return MOUNT_UNMOUNT_FILESYSTEMS;
+                yield return NFC;
+                yield return PERSISTENT_ACTIVITY;
+                yield return PROCESS_OUTGOING_CALLS;
+                yield return READ_CALENDAR;
+                yield return READ_CONTACTS;
+                yield return READ_FRAME_BUFFER;
+                yield return READ_HISTORY_BOOKMARKS;
+                yield return READ_INPUT_STATE;
+                yield return READ_LOGS;
+                yield return READ_PHONE_STATE;
+                yield return READ_SMS;
+                yield return READ_SYNC_SETTINGS;
+                yield return READ_SYNC_STATS;
+                yield return REBOOT;
+                yield return RECEIVE_BOOT_COMPLETED;
+                yield return RECEIVE_MMS;
+                yield return RECEIVE_SMS;
+                yield return RECEIVE_WAP_PUSH;
+                yield return RECORD_AUDIO;
+                yield return REORDER_TASKS;
+                yield return RESTART_PACKAGES;
+                yield return SEND_SMS;
+                yield return SET_ACTIVITY_WATCHER;
+                yield return SET_ALARM;
+                yield return SET_ALWAYS_FINISH;
+                yield return SET_ANIMATION_SCALE;
+                yield return SET_DEBUG_APP;
+                yield return SET_ORIENTATION;
+                yield return SET_PREFERRED_APPLICATIONS;
+                yield return SET_PROCESS_LIMIT;
+                yield return SET_TIME;
+                yield return SET_TIME_ZONE;
+                yield return SET_WALLPAPER;
+                yield return SET_WALLPAPER_HINTS;
+                yield return SIGNAL_PERSISTENT_PROCESSES;
+                yield return STATUS_BAR;
+                yield return SUBSCRIBED_FEEDS_READ;
+                yield return SUBSCRIBED_FEEDS_WRITE;
+                yield return SYSTEM_ALERT_WINDOW;
+                yield return UPDATE_DEVICE_STATS;
+                yield return USE_CREDENTIALS;
+                yield return USE_SIP;
+                yield return VIBRATE;
+                yield return WAKE_LOCK;
+                yield return WRITE_APN_SETTINGS;
+                yield return WRITE_CALENDAR;
+                yield return WRITE_CONTACTS;
+                yield return WRITE_GSERVICES;
+                yield return WRITE_HISTORY_BOOKMARKS;
+                yield return WRITE_SECURE_SETTINGS;
+                yield return WRITE_SETTINGS;
+                yield return WRITE_SMS;
+                yield return WRITE_SYNC_SETTINGS;
+            }
+
+        }
+    }
+}
