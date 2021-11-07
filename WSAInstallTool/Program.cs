@@ -19,11 +19,11 @@ namespace WSAInstallTool
             Application.SetCompatibleTextRenderingDefault(false);
             if (args.Length == 0)
             {
-                if (!IsAdministrator())
-                {
-                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此APP！");
-                    return;
-                }
+                //if (!IsAdministrator())
+                //{
+                //    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此APP！");
+                //    return;
+                //}
                 Application.Run(new SettingForm());
                 //Application.Run(new InstallForm(args));
             }

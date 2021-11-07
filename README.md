@@ -1,10 +1,10 @@
-# WSAInstallTool
+# WSAInstallTool-APK安装器
 
 #### 介绍
 Windows下自动关联APK文件且双击APK安装到手机上。支持Win10 和 Win11，理论上也支持Win7。如无法运行，请安装.Net Framework 4.5.2。该软件主要服务于win11的Android子系统和Android开发者。
 
 #### 软件架构
-软件采用C# + WPF开发。
+软件采用C# + WinForm开发。
 
 
 #### 安装教程
@@ -35,6 +35,12 @@ Windows下自动关联APK文件且双击APK安装到手机上。支持Win10 和 
 
 请直接提交Issue
 
+#### 其它版权信息
+
+AAPT
+
+ADBShell
+
 #### 版本计划
 
 1、支持APK图标显示
@@ -42,3 +48,4 @@ Windows下自动关联APK文件且双击APK安装到手机上。支持Win10 和 
 2、支持Android所有权限提示
 
 3、UWP版本
+
