@@ -78,6 +78,7 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\AndroidPerimission.cs" />
+    <Compile Include="Util\AndroidSDKVersion.cs" />
     <Compile Include="Util\CMDUtil.cs" />
     <Compile Include="AppForm\DeviceSelectForm.cs">
       <SubType>Form</SubType>

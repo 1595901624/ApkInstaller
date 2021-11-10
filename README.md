@@ -41,11 +41,11 @@ AAPT
 
 ADBShell
 
+ApkShellext2
+
 #### 版本计划
 
-1、支持APK图标显示
-
-2、支持Android所有权限提示
-
-3、UWP版本
+* 支持APK图标显示（1.1.0.5版本已经支持）
+* 支持Android所有权限提示（1.0.3.0版本已经支持）
+* UWP版本（远景计划）
 

@@ -56,6 +56,7 @@ namespace WSAInstallTool
 
             packageNameLabel.Text = "包名：" + aaptParseUtil.GetPackageName();
             versionNameLabel.Text = "版本名称：" + aaptParseUtil.GetVersionName();
+            minVersionLabel.Text = "最低支持版本：" + aaptParseUtil.getMinSupportVersion();
 
             // 权限
             StringBuilder permissionStringBuilder = new StringBuilder();

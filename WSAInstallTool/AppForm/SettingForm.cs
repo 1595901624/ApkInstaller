@@ -22,8 +22,7 @@ namespace WSAInstallTool
         {
             //1.设置关联APK文件
             associatedApk();
-            //2.显示自身APK图标
-            //CMDUtil.ExecBat("install.bat");
+            
             MessageBox.Show("安装完成！");
         }
 
@@ -106,7 +105,7 @@ namespace WSAInstallTool
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL\shell\open", false);
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL\shell", false);
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL", false);
-            //CMDUtil.ExecBat("uninstall.bat");
+           
             hklm.Close();
             MessageBox.Show("清除完成！请直接删除软件所在目录即可！");   
         }
@@ -115,6 +114,22 @@ namespace WSAInstallTool
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.Show();
+        }
+
+        /// <summary>
+        /// 安装APK图标点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void installApkIconButton_Click(object sender, EventArgs e)
+        {
+            //2.显示自身APK图标
+            CMDUtil.ExecBat("install.bat");
+        }
+
+        private void uninsallApkIconButton_Click(object sender, EventArgs e)
+        {
+            CMDUtil.ExecBat("uninstall.bat");
         }
     }
 }

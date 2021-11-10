@@ -53,7 +53,7 @@ namespace WSAInstallTool
         {
             if (appInfo.Length == 0 || appInfoList.Length < 1) return "";
             StringBuilder sb = new StringBuilder();
-            foreach (string str in appInfoList) 
+            foreach (string str in appInfoList)
             {
                 if (str.Contains("uses-permission:"))
                 {
@@ -127,7 +127,7 @@ namespace WSAInstallTool
         /// 获取权限信息列表 返回List
         /// </summary>
         /// <returns>List<string></returns>
-        public List<string> GetPermissionList() 
+        public List<string> GetPermissionList()
         {
             if (appInfo.Length == 0 || appInfoList.Length < 1) return new List<string>();
 
@@ -156,7 +156,7 @@ namespace WSAInstallTool
         public string GetApkIcon(string apkPath)
         {
             string result = System.Threading.Thread.GetDomain().BaseDirectory + "icon\\" + GetPackageName() + ".png";
-            
+
             if (File.Exists(result))
             {
                 //Console.WriteLine("logo exist！");
@@ -217,7 +217,7 @@ namespace WSAInstallTool
             if (appInfo.Length == 0 || appInfoList.Length < 1) return "";
             string zhName = "";
             string defaultName = "";
-            foreach (string str in appInfoList) 
+            foreach (string str in appInfoList)
             {
                 if (str.Contains("application-label-zh:"))
                 {
@@ -240,6 +240,54 @@ namespace WSAInstallTool
                 return defaultName;
             }
             return "";
+        }
+
+        public int GetMinSdkVersion()
+        {
+            if (appInfo.Length == 0 || appInfoList.Length < 1)
+            {
+                return -1;
+            }
+
+            foreach (string s in appInfoList)
+            {
+                if (s.Contains("sdkVersion:'"))
+                {
+                    try
+                    {
+                        var result = int.Parse(GetValue(s, "sdkVersion:'", "'"));
+                        return result;
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine("GetMinSdkVersion Error! = " + e.Message);
+                        return -1;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// 获取最小支持的android版本
+        /// </summary>
+        /// <returns></returns>
+        public string getMinSupportVersion()
+        {
+            int minSdk = GetMinSdkVersion();
+            if (minSdk == -1)
+            {
+                return "无法识别的版本";
+            }
+            foreach (AndroidSDKVersion sdkVersion in AndroidSDKVersion.Values)
+            {
+                if (sdkVersion.api == minSdk)
+                {
+                    return "Android " + sdkVersion.version;
+                }
+            }
+            return "无法识别的版本";
         }
 
         /// <summary>

@@ -37,13 +37,14 @@
             this.installButton = new System.Windows.Forms.Button();
             this.installProgressBar = new System.Windows.Forms.ProgressBar();
             this.moreLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.minVersionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // packageNameLabel
             // 
             this.packageNameLabel.AutoSize = true;
-            this.packageNameLabel.Location = new System.Drawing.Point(23, 107);
+            this.packageNameLabel.Location = new System.Drawing.Point(23, 96);
             this.packageNameLabel.Name = "packageNameLabel";
             this.packageNameLabel.Size = new System.Drawing.Size(103, 15);
             this.packageNameLabel.TabIndex = 0;
@@ -52,7 +53,7 @@
             // versionNameLabel
             // 
             this.versionNameLabel.AutoSize = true;
-            this.versionNameLabel.Location = new System.Drawing.Point(23, 136);
+            this.versionNameLabel.Location = new System.Drawing.Point(23, 122);
             this.versionNameLabel.Name = "versionNameLabel";
             this.versionNameLabel.Size = new System.Drawing.Size(95, 15);
             this.versionNameLabel.TabIndex = 1;
@@ -117,11 +118,21 @@
             this.moreLinkLabel.Visible = false;
             this.moreLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.moreLinkLabel_LinkClicked);
             // 
+            // minVersionLabel
+            // 
+            this.minVersionLabel.AutoSize = true;
+            this.minVersionLabel.Location = new System.Drawing.Point(23, 149);
+            this.minVersionLabel.Name = "minVersionLabel";
+            this.minVersionLabel.Size = new System.Drawing.Size(87, 15);
+            this.minVersionLabel.TabIndex = 7;
+            this.minVersionLabel.Text = "minVersion";
+            // 
             // InstallForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 441);
+            this.Controls.Add(this.minVersionLabel);
             this.Controls.Add(this.moreLinkLabel);
             this.Controls.Add(this.installProgressBar);
             this.Controls.Add(this.installButton);
@@ -154,6 +165,7 @@
         private System.Windows.Forms.Button installButton;
         private System.Windows.Forms.ProgressBar installProgressBar;
         private System.Windows.Forms.LinkLabel moreLinkLabel;
+        private System.Windows.Forms.Label minVersionLabel;
     }
 }
 
