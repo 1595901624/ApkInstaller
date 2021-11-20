@@ -40,9 +40,8 @@ namespace WSAInstallTool
             pStartInfo.RedirectStandardError = false;
             pStartInfo.RedirectStandardInput = false;
             pStartInfo.RedirectStandardOutput = false;
-            Process.Start(pStartInfo);
-            //Process.Start(@"D:\项目目录\WSAInstallTool\WSAInstallTool\bin\Debug\install.bat");
-
+            Process p = Process.Start(pStartInfo);
+            p.WaitForExit();
         }
     }
 }

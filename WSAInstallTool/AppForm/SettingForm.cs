@@ -18,14 +18,6 @@ namespace WSAInstallTool
             InitializeComponent();
         }
 
-        private void installButton_Click(object sender, EventArgs e)
-        {
-            //1.设置关联APK文件
-            associatedApk();
-            
-            MessageBox.Show("安装完成！");
-        }
-
          /// <summary>
         /// 关联APK
         /// </summary>
@@ -70,7 +62,9 @@ namespace WSAInstallTool
         {
             //主要用到了DeleteSubKey()
             RegistryKey hklm = Registry.ClassesRoot;
-            hklm.DeleteSubKey(key, false);  //为true时，删除的注册表不存在时抛出异常；当为false时不抛出异常。
+
+
+            hklm.DeleteSubKeyTree(key, false);  //为true时，删除的注册表不存在时抛出异常；当为false时不抛出异常。
             hklm.Close();
         }
 
@@ -96,10 +90,19 @@ namespace WSAInstallTool
             return false;
         }
 
+        private void installButton_Click(object sender, EventArgs e)
+        {
+            //1.设置关联APK文件
+            associatedApk();
+            CMDUtil.ExecBat("install.bat");
+            MessageBox.Show("安装完成！");
+        }
+
         private void uninstallButton_Click(object sender, EventArgs e)
         {
+            CMDUtil.ExecBat("uninstall.bat");
             RegistryKey hklm = Registry.ClassesRoot;
-            hklm.DeleteSubKey(".apk", false);  //为true时，删除的注册表不存在时抛出异常；当为false时不抛出异常。
+            hklm.DeleteSubKeyTree(".apk", false);  //为true时，删除的注册表不存在时抛出异常；当为false时不抛出异常。
             hklm.DeleteSubKeyTree("HYWINXYZWSATOOL", false);
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL\shell\open\command", false);
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL\shell\open", false);
@@ -130,6 +133,16 @@ namespace WSAInstallTool
         private void uninsallApkIconButton_Click(object sender, EventArgs e)
         {
             CMDUtil.ExecBat("uninstall.bat");
+            associatedApk();
+        }
+
+        private void readMeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string s = "1、点击“一键安装”将会自动关联APK文件，并且显示APK自身应用图标\n"
+                + "2、点击“一键清除”将会自动解关联APK文件，并且解除显示APK自身应用图标\n"
+                + "3、点击“一键清除”后如果依然显示APK图标是由于电脑软件的原因，重启电脑即可解决\n"
+                + "4、卸载软件：请先点击“一键清除”，然后直接删除软件所在目录即可。";
+            MessageBox.Show(s);
         }
     }
 }

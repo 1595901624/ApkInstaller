@@ -21,7 +21,7 @@ namespace WSAInstallTool
             {
                 if (!IsAdministrator())
                 {
-                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此APP！");
+                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此软件！");
                     return;
                 }
                 Application.Run(new SettingForm());

@@ -50,7 +50,7 @@ namespace WSAInstallTool
           
             //string apkPath = "C:\\Users\\haoyu\\Desktop\\106_f0c49f2b285b39d89d87a3c5747ea155.apk";
 
-            string result = CMDUtil.ExecCMD("aapt.exe", "dump badging " + apkPath);
+            string result = CMDUtil.ExecCMD("aapt.exe", "dump badging \"" + apkPath + "\"");
 
             AAPTParseUtil aaptParseUtil = new AAPTParseUtil(result);
 
@@ -199,7 +199,7 @@ namespace WSAInstallTool
         private void InstallApkCMD(object obj)
         {
             CmdCallbackDelegate callback = obj as CmdCallbackDelegate;
-            string result = CMDUtil.ExecCMD("adb.exe", extraCommand + "install -r " + apkPath);
+            string result = CMDUtil.ExecCMD("adb.exe", extraCommand + "install -r \"" + apkPath + "\"");
             callback(result);
         }
 

@@ -36,36 +36,40 @@
             this.uninsallApkIconButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.readMeLabel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // installButton
             // 
-            this.installButton.Location = new System.Drawing.Point(61, 24);
+            this.installButton.Location = new System.Drawing.Point(46, 19);
+            this.installButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.installButton.Name = "installButton";
-            this.installButton.Size = new System.Drawing.Size(191, 58);
+            this.installButton.Size = new System.Drawing.Size(158, 46);
             this.installButton.TabIndex = 0;
-            this.installButton.Text = "一键关联APK";
+            this.installButton.Text = "一键安装";
             this.installButton.UseVisualStyleBackColor = true;
             this.installButton.Click += new System.EventHandler(this.installButton_Click);
             // 
             // uninstallButton
             // 
-            this.uninstallButton.Location = new System.Drawing.Point(61, 104);
+            this.uninstallButton.Location = new System.Drawing.Point(46, 83);
+            this.uninstallButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uninstallButton.Name = "uninstallButton";
-            this.uninstallButton.Size = new System.Drawing.Size(191, 56);
+            this.uninstallButton.Size = new System.Drawing.Size(158, 45);
             this.uninstallButton.TabIndex = 1;
-            this.uninstallButton.Text = "一键清除关联";
+            this.uninstallButton.Text = "一键清除";
             this.uninstallButton.UseVisualStyleBackColor = true;
             this.uninstallButton.Click += new System.EventHandler(this.uninstallButton_Click);
             // 
             // aboutLinkLabel
             // 
             this.aboutLinkLabel.AutoSize = true;
-            this.aboutLinkLabel.Location = new System.Drawing.Point(22, 225);
+            this.aboutLinkLabel.Location = new System.Drawing.Point(16, 180);
+            this.aboutLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.aboutLinkLabel.Name = "aboutLinkLabel";
-            this.aboutLinkLabel.Size = new System.Drawing.Size(37, 15);
+            this.aboutLinkLabel.Size = new System.Drawing.Size(29, 12);
             this.aboutLinkLabel.TabIndex = 2;
             this.aboutLinkLabel.TabStop = true;
             this.aboutLinkLabel.Text = "关于";
@@ -73,9 +77,10 @@
             // 
             // installApkIconButton
             // 
-            this.installApkIconButton.Location = new System.Drawing.Point(87, 24);
+            this.installApkIconButton.Location = new System.Drawing.Point(65, 19);
+            this.installApkIconButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.installApkIconButton.Name = "installApkIconButton";
-            this.installApkIconButton.Size = new System.Drawing.Size(173, 58);
+            this.installApkIconButton.Size = new System.Drawing.Size(130, 46);
             this.installApkIconButton.TabIndex = 3;
             this.installApkIconButton.Text = "显示APK自身图标";
             this.installApkIconButton.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // 
             // uninsallApkIconButton
             // 
-            this.uninsallApkIconButton.Location = new System.Drawing.Point(87, 101);
+            this.uninsallApkIconButton.Location = new System.Drawing.Point(65, 81);
+            this.uninsallApkIconButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uninsallApkIconButton.Name = "uninsallApkIconButton";
-            this.uninsallApkIconButton.Size = new System.Drawing.Size(173, 56);
+            this.uninsallApkIconButton.Size = new System.Drawing.Size(130, 45);
             this.uninsallApkIconButton.TabIndex = 4;
             this.uninsallApkIconButton.Text = "清除APK自身图标";
             this.uninsallApkIconButton.UseVisualStyleBackColor = true;
@@ -95,9 +101,11 @@
             // 
             this.groupBox1.Controls.Add(this.installButton);
             this.groupBox1.Controls.Add(this.uninstallButton);
-            this.groupBox1.Location = new System.Drawing.Point(25, 12);
+            this.groupBox1.Location = new System.Drawing.Point(19, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 187);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(248, 150);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "关联APK";
@@ -106,22 +114,37 @@
             // 
             this.groupBox2.Controls.Add(this.uninsallApkIconButton);
             this.groupBox2.Controls.Add(this.installApkIconButton);
-            this.groupBox2.Location = new System.Drawing.Point(399, 15);
+            this.groupBox2.Location = new System.Drawing.Point(299, 12);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(326, 184);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(244, 147);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "APK图标";
+            this.groupBox2.Text = "2、APK图标";
+            // 
+            // readMeLabel
+            // 
+            this.readMeLabel.AutoSize = true;
+            this.readMeLabel.Location = new System.Drawing.Point(50, 180);
+            this.readMeLabel.Name = "readMeLabel";
+            this.readMeLabel.Size = new System.Drawing.Size(65, 12);
+            this.readMeLabel.TabIndex = 7;
+            this.readMeLabel.TabStop = true;
+            this.readMeLabel.Text = "使用前必读";
+            this.readMeLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.readMeLabel_LinkClicked);
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 255);
+            this.ClientSize = new System.Drawing.Size(292, 204);
+            this.Controls.Add(this.readMeLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.aboutLinkLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingForm";
@@ -143,5 +166,6 @@
         private System.Windows.Forms.Button uninsallApkIconButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.LinkLabel readMeLabel;
     }
 }
