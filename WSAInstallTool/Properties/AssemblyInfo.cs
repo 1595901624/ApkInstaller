@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("WSAInstallTool")]
-[assembly: AssemblyDescription("Gitee地址:\n https://gitee.com/haoyu3/wsainstall-tool")]
+[assembly: AssemblyTitle("ApkInstaller")]
+[assembly: AssemblyDescription("Apk Installer（原名：WSAInstallTool），在1.2.3.0版本之后改名为Apk Installer。如果您有意见或者建议请前往Gitee提交Issue。 \r\n\r\n Gitee地址: https://gitee.com/haoyu3/wsainstall-tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("开发人员: 我是小学生")]
-[assembly: AssemblyProduct("WSAInstallTool")]
+[assembly: AssemblyProduct("ApkInstaller")]
 [assembly: AssemblyCopyright("使用 GPL-3.0 开源协议")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.0.0")]
-[assembly: AssemblyFileVersion("1.2.0.0")]
+[assembly: AssemblyVersion("1.2.3.0")]
+[assembly: AssemblyFileVersion("1.2.3.0")]

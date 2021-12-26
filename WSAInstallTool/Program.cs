@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Principal;
+using WSAInstallTool.Util;
+using System.Diagnostics;
 
 namespace WSAInstallTool
 {
@@ -17,14 +19,15 @@ namespace WSAInstallTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            IniUtil.Instance.Init();
             if (args.Length == 0)
             {
                 if (!IsAdministrator())
                 {
-                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此软件！");
+                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此软件！", "Apk Installer");
                     return;
                 }
-                Application.Run(new SettingForm());
+                Application.Run(new MainForm());
                 //Application.Run(new InstallForm(args));
             }
             else 

@@ -199,6 +199,7 @@ namespace WSAInstallTool
                         }
                     }
                 }
+                Debug.WriteLine("apk logo path => " + result);
                 return result;
             }
             catch (Exception e)

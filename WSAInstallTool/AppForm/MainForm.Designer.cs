@@ -1,6 +1,6 @@
 ﻿namespace WSAInstallTool
 {
-    partial class SettingForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.installButton = new System.Windows.Forms.Button();
             this.uninstallButton = new System.Windows.Forms.Button();
             this.aboutLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -44,7 +44,7 @@
             // installButton
             // 
             this.installButton.Location = new System.Drawing.Point(46, 19);
-            this.installButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.installButton.Margin = new System.Windows.Forms.Padding(2);
             this.installButton.Name = "installButton";
             this.installButton.Size = new System.Drawing.Size(158, 46);
             this.installButton.TabIndex = 0;
@@ -55,11 +55,11 @@
             // uninstallButton
             // 
             this.uninstallButton.Location = new System.Drawing.Point(46, 83);
-            this.uninstallButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uninstallButton.Margin = new System.Windows.Forms.Padding(2);
             this.uninstallButton.Name = "uninstallButton";
             this.uninstallButton.Size = new System.Drawing.Size(158, 45);
             this.uninstallButton.TabIndex = 1;
-            this.uninstallButton.Text = "一键清除";
+            this.uninstallButton.Text = "卸载软件/清除旧版本";
             this.uninstallButton.UseVisualStyleBackColor = true;
             this.uninstallButton.Click += new System.EventHandler(this.uninstallButton_Click);
             // 
@@ -78,7 +78,7 @@
             // installApkIconButton
             // 
             this.installApkIconButton.Location = new System.Drawing.Point(65, 19);
-            this.installApkIconButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.installApkIconButton.Margin = new System.Windows.Forms.Padding(2);
             this.installApkIconButton.Name = "installApkIconButton";
             this.installApkIconButton.Size = new System.Drawing.Size(130, 46);
             this.installApkIconButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             // uninsallApkIconButton
             // 
             this.uninsallApkIconButton.Location = new System.Drawing.Point(65, 81);
-            this.uninsallApkIconButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uninsallApkIconButton.Margin = new System.Windows.Forms.Padding(2);
             this.uninsallApkIconButton.Name = "uninsallApkIconButton";
             this.uninsallApkIconButton.Size = new System.Drawing.Size(130, 45);
             this.uninsallApkIconButton.TabIndex = 4;
@@ -102,9 +102,9 @@
             this.groupBox1.Controls.Add(this.installButton);
             this.groupBox1.Controls.Add(this.uninstallButton);
             this.groupBox1.Location = new System.Drawing.Point(19, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(248, 150);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -115,9 +115,9 @@
             this.groupBox2.Controls.Add(this.uninsallApkIconButton);
             this.groupBox2.Controls.Add(this.installApkIconButton);
             this.groupBox2.Location = new System.Drawing.Point(299, 12);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(244, 147);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
@@ -134,7 +134,7 @@
             this.readMeLabel.Text = "使用前必读";
             this.readMeLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.readMeLabel_LinkClicked);
             // 
-            // SettingForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,12 +144,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.aboutLinkLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SettingForm";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "APK安装器";
+            this.Text = "Apk Installer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

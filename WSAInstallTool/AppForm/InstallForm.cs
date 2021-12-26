@@ -4,11 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WSAInstallTool.AppForm;
+using WSAInstallTool.Util;
 
 namespace WSAInstallTool
 {
@@ -42,7 +45,7 @@ namespace WSAInstallTool
         {
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = "C:\\Users\\haoyu\\Desktop\\106_f0c49f2b285b39d89d87a3c5747ea155.apk";
+            apkPath = @"C:\Users\haoyu\Desktop\110_49b6fa118f4a5d9906eb42a86b4d4ebe.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
@@ -83,10 +86,14 @@ namespace WSAInstallTool
             // APP 名称
             appNameLabel.Text = aaptParseUtil.GetAppName();
 
+            // APP 大小
+            spaceLabel.Text = "大小：" + GetApkSpace();
+
             // 获取APK图标
             try
             {
                 string iconPath = aaptParseUtil.GetApkIcon(apkPath);
+                Debug.WriteLine("load logo path => " + iconPath);
                 iconPictureBox.Load(iconPath);
             }
             catch (Exception ex)
@@ -94,6 +101,46 @@ namespace WSAInstallTool
                 Debug.WriteLine("load logo error => " + ex.Message);
             }
 
+        }
+
+        /// <summary>
+        /// 获取APK大小
+        /// 如果文件大小是0-1024B 以内的   显示以B为单位
+        /// 如果文件大小是1KB-1024KB之间的 显示以KB为单位
+        /// 如果文件大小是1M-1024M之间的   显示以M为单位
+        /// 如果文件大小是1024M以上的      显示以GB为单位
+        /// <returns></returns>
+        private string GetApkSpace()
+        {
+            string result = "未知";
+            FileStream file = null;
+            try
+            {
+                file = File.Open(apkPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);
+                long space = file.Length;
+
+                if (space < 1024)
+                    result = string.Format("{0:F}", space) + " B";
+                else if (space > 1024 && space <= Math.Pow(1024, 2))
+                    result = string.Format("{0:F}", (space / 1024.0)) + " KB";
+                else if (space > Math.Pow(1024, 2) && space <= Math.Pow(1024, 3))
+                    result = string.Format("{0:F}", (space / 1024.0 / 1024.0)) + " MB";
+                else
+                    result = string.Format("{0:F}", (space / 1024.0 / 1024.0 / 1024.0)) + " GB";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[GetApkSpace Error] " + ex.Message);
+            }
+            finally
+            {
+                if (file != null)
+                {
+                    file.Close();
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -199,7 +246,9 @@ namespace WSAInstallTool
         private void InstallApkCMD(object obj)
         {
             CmdCallbackDelegate callback = obj as CmdCallbackDelegate;
-            string result = CMDUtil.ExecCMD("adb.exe", extraCommand + "install -r \"" + apkPath + "\"");
+            string installCommand = PreferenceUtil.Instance.GetInstallMethodCommand();
+            string result = CMDUtil.ExecCMD("adb.exe", extraCommand + "install " + installCommand + " \"" + apkPath + "\"");
+            Debug.WriteLine("[InstallForm][InstallApkCMD] command => " + result);
             callback(result);
         }
 
@@ -228,7 +277,19 @@ namespace WSAInstallTool
 
                 if (!string.IsNullOrEmpty(result) && result.Replace("Performing Streamed Install", "").Trim() == "Success")
                 {
-                    MessageBox.Show("安装成功！");
+                    if (PreferenceUtil.Instance.IsCloseAfterInstalled())
+                    {
+                        // 关闭窗口
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("安装成功！");
+                    }
+                }
+                else if (!string.IsNullOrEmpty(result) && result.Contains("[INSTALL_FAILED_VERSION_DOWNGRADE]"))
+                {
+                    MessageBox.Show("安装失败：检测到当前安装版本低于设备中已安装的版本。\n如果需要强制安装，请到设置页开启“降级覆盖安装”！");
                 }
                 else
                 {
@@ -246,6 +307,16 @@ namespace WSAInstallTool
         {
             PermissionForm pf = new PermissionForm(permissionList);
             pf.Show();
+        }
+
+        /// <summary>
+        /// 点击设置按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void settingButton_Click(object sender, EventArgs e)
+        {
+            new SettingForm().Show();
         }
     }
 }

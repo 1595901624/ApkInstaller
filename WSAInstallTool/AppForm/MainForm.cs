@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Diagnostics;
+using System.IO;
 
 namespace WSAInstallTool
 {
-    public partial class SettingForm : Form
+    public partial class MainForm : Form
     {
-        public SettingForm()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -46,7 +48,21 @@ namespace WSAInstallTool
             RegistryKey hklm = Registry.ClassesRoot;
             RegistryKey hkSoftWare = hklm.CreateSubKey(@"HYWINXYZWSATOOL\shell\open\command");
             string softwarePath = System.Threading.Thread.GetDomain().BaseDirectory;
-            hkSoftWare.SetValue("", "\"" + softwarePath + "WSAInstallTool.exe\" \"%1\"", RegistryValueKind.String);
+            string fileNamePath = Process.GetCurrentProcess().MainModule.FileName;
+            string exeName = "ApkInstaller.exe";
+            try
+            {
+                FileInfo fileInfo = new FileInfo(fileNamePath);
+                exeName = fileInfo.Name;
+                Debug.WriteLine("[MainForm][CreateAssociationProgram] exeName: " + fileInfo.Name);
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[MainForm][CreateAssociationProgram] error: " + ex.Message);
+            }
+
+            hkSoftWare.SetValue("", "\"" + softwarePath + exeName + "\" \"%1\"", RegistryValueKind.String);
             
             // 2.创建.apk
             RegistryKey apkSoftWare = hklm.CreateSubKey(@".apk");

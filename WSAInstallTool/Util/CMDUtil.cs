@@ -17,10 +17,13 @@ namespace WSAInstallTool
             ProcessStartInfo psi = new ProcessStartInfo(cmd_filename, arguments);//如：调用ipconfig ,并传入参数: /all 
             psi.CreateNoWindow = true; //若为false，则会出现cmd的黑窗体 
             psi.RedirectStandardOutput = true;
+            psi.RedirectStandardError = true;
             psi.UseShellExecute = false;
             psi.StandardOutputEncoding = Encoding.UTF8;
             System.Diagnostics.Process p = System.Diagnostics.Process.Start(psi);
-            return p.StandardOutput.ReadToEnd();
+            string s = p.StandardOutput.ReadToEnd();
+            s += p.StandardError.ReadToEnd();
+            return s;
         }
 
         /// <summary>
