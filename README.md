@@ -1,5 +1,7 @@
 # Apk Installer
 
+![](https://img.shields.io/badge/version-v1.2.3.0-blue.svg?style=flat)
+
 #### 介绍
 
 Apk Installer（原名:WSAInstallTool，自1.2.3.0版本后更名）是一款Windows下自动关联APK文件且双击APK安装到任意安卓设备上的工具。该软件可以显示Apk自身的图标，详细的权限列表等。
