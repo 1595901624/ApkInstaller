@@ -14,10 +14,12 @@ namespace WSAInstallTool.Util
 
 
         //读写INI文件的API函数
+        //[DllImport("kernel32", CharSet = CharSet.Auto, EntryPoint = "WritePrivateProfileStringA")]
         [DllImport("kernel32", CharSet = CharSet.Auto)]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        private static extern bool WritePrivateProfileString(string section, string key, string val, string filePath);
 
         [DllImport("kernel32", CharSet = CharSet.Auto)]
+        //[DllImport("kernel32", CharSet = CharSet.Auto)]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
 
         // 配置项
@@ -25,7 +27,8 @@ namespace WSAInstallTool.Util
         private string ABSOLUTE_SETTING_PATH = "";
         
         // 语言文件(预留)
-        private const string LANGUAGE_PATH = "";
+        //private string LANG_PATH = "lang\\";
+        //private string ABSOLUTE_LANG_PATH = "";
 
         private static IniUtil _instance = null;
         private static readonly object SyncObject = new object();
@@ -56,8 +59,29 @@ namespace WSAInstallTool.Util
                 Debug.WriteLine("not exist setting.ini");
                 CreateIniFile(ABSOLUTE_SETTING_PATH);
             }
+
+            //ABSOLUTE_LANG_PATH = System.Windows.Forms.Application.StartupPath + "\\" + LANG_PATH + PreferenceUtil.Instance.GetCurrentLang();
             
             Debug.WriteLine("[IniUtil][Init] setting path :" + ABSOLUTE_SETTING_PATH);
+            //Debug.WriteLine("[IniUtil][Init] lang path :" + ABSOLUTE_LANG_PATH);
+
+           
+        }
+
+        /// <summary>
+        /// UTF8转换成GB2312
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public string Utf2Default(string text)
+        {
+            //声明字符集   
+            System.Text.Encoding utf8 = System.Text.Encoding.GetEncoding("utf-8");
+
+            byte[] utf = utf8.GetBytes(text);
+            utf = System.Text.Encoding.Convert(utf8, Encoding.Default, utf);
+            //返回转换后的字符   
+            return Encoding.Default.GetString(utf);
         }
 
         /// <summary>
@@ -109,20 +133,26 @@ namespace WSAInstallTool.Util
             try
             {
                 StringBuilder sb = new StringBuilder(1024);
-                int i = GetPrivateProfileString(section, key, "", sb, 1024, path);
-                Debug.WriteLine("[IniUtil][ReadIniValue] get result = " + i);
+                //byte[] buffer = new byte[1024];
+                int count = GetPrivateProfileString(section, key, "", sb, 1024, path);
+                Debug.WriteLine("[IniUtil][ReadIniValue] get result = " + count);
+                //return Encoding.UTF8.GetString(buffer, 0, count);
                 if (sb == null)
                 {
                     return defaultValue;
                 }
-                string temp = sb.ToString();
-                return String.IsNullOrEmpty(temp) ? defaultValue : temp.Trim();
+                return string.IsNullOrEmpty(sb.ToString()) ? defaultValue : sb.ToString().Trim();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("[IniUtil][ReadIniValue] error : " + ex.Message);
                 return defaultValue;
             }
+        }
+
+        private byte[] getUTF8Bytes(string s)
+        {
+            return Encoding.UTF8.GetBytes(s);
         }
 
         /// <summary>

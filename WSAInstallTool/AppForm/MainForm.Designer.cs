@@ -34,10 +34,10 @@
             this.aboutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.installApkIconButton = new System.Windows.Forms.Button();
             this.uninsallApkIconButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.associateApkGroup = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.readMeLabel = new System.Windows.Forms.LinkLabel();
-            this.groupBox1.SuspendLayout();
+            this.associateApkGroup.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,18 +97,18 @@
             this.uninsallApkIconButton.UseVisualStyleBackColor = true;
             this.uninsallApkIconButton.Click += new System.EventHandler(this.uninsallApkIconButton_Click);
             // 
-            // groupBox1
+            // associateApkGroup
             // 
-            this.groupBox1.Controls.Add(this.installButton);
-            this.groupBox1.Controls.Add(this.uninstallButton);
-            this.groupBox1.Location = new System.Drawing.Point(19, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(248, 150);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "关联APK";
+            this.associateApkGroup.Controls.Add(this.installButton);
+            this.associateApkGroup.Controls.Add(this.uninstallButton);
+            this.associateApkGroup.Location = new System.Drawing.Point(19, 10);
+            this.associateApkGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.associateApkGroup.Name = "associateApkGroup";
+            this.associateApkGroup.Padding = new System.Windows.Forms.Padding(2);
+            this.associateApkGroup.Size = new System.Drawing.Size(248, 150);
+            this.associateApkGroup.TabIndex = 5;
+            this.associateApkGroup.TabStop = false;
+            this.associateApkGroup.Text = "关联APK";
             // 
             // groupBox2
             // 
@@ -141,7 +141,7 @@
             this.ClientSize = new System.Drawing.Size(292, 204);
             this.Controls.Add(this.readMeLabel);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.associateApkGroup);
             this.Controls.Add(this.aboutLinkLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -150,7 +150,8 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apk Installer";
-            this.groupBox1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.associateApkGroup.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,7 +165,7 @@
         private System.Windows.Forms.LinkLabel aboutLinkLabel;
         private System.Windows.Forms.Button installApkIconButton;
         private System.Windows.Forms.Button uninsallApkIconButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox associateApkGroup;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel readMeLabel;
     }

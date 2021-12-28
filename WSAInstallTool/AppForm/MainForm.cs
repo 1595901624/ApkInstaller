@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
+using WSAInstallTool.Util;
 
 namespace WSAInstallTool
 {
@@ -159,6 +160,15 @@ namespace WSAInstallTool
                 + "3、点击“一键清除”后如果依然显示APK图标是由于电脑软件的原因，重启电脑即可解决\n"
                 + "4、卸载软件：请先点击“一键清除”，然后直接删除软件所在目录即可。";
             MessageBox.Show(s);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            associateApkGroup.Text = LangUtil.Instance.GetAssociateApk();
+            installButton.Text = LangUtil.Instance.GetOneKeyInstall();
+            uninstallButton.Text = LangUtil.Instance.GetOnKeyUninstall();
+            aboutLinkLabel.Text = LangUtil.Instance.GetAbout();
+            readMeLabel.Text = LangUtil.Instance.GetReadMe();
         }
     }
 }

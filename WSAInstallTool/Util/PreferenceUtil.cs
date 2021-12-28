@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WSAInstallTool.AppModel;
 
 
 namespace WSAInstallTool.Util
@@ -13,12 +15,16 @@ namespace WSAInstallTool.Util
     class PreferenceUtil
     {
         public const string INSTALL_SECTION = "install";
+        public const string LANG_SECTION = "lang";
 
         // 安装方式 1：覆盖安装 2：降级覆盖安装
         public const string INSTALL_METHOD = "installMethod";
 
         // 安装成功后是否关闭窗口
         public const string INSTALL_SUCCESS_CLOSE = "installSuccessClose";
+
+        // 默认语言
+        public const string LANG_DEFAULT = "current";
 
         private static PreferenceUtil _instance = null;
         private static readonly object SyncObject = new object();
@@ -36,6 +42,35 @@ namespace WSAInstallTool.Util
                     return _instance ?? (_instance = new PreferenceUtil());
                 }
             }
+        }
+
+        /// <summary>
+        /// 获取当前的语言包
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentLangPath()
+        {
+            try
+            {
+                string currentLangId = IniUtil.Instance.ReadSettingValue(LANG_SECTION, LANG_DEFAULT, "0");
+                int id = int.Parse(currentLangId);
+                string json = System.IO.File.ReadAllText(CommonUtil.GetCurrentStartupPath() + @"\lang\lang.json");
+                List<SupportLanguage> sls = CommonUtil.JsonToObject<List<SupportLanguage>>(json);
+                Debug.WriteLine("[PreferenceUtil][GetCurrentLang] lang size: " + sls.Count + ", currentLangId: " + id);
+                foreach (var sl in sls)
+                {
+                    Debug.WriteLine("sl ... " + sl.ToString());
+                    if (sl.id == id)
+                    {
+                        return CommonUtil.GetCurrentStartupPath() + @"\lang\" + sl.file;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[PreferenceUtil][GetCurrentLang] error: " + ex.Message);
+            }
+            return CommonUtil.GetCurrentStartupPath() + @"\lang\zh_CN.json";
         }
 
         /// <summary>

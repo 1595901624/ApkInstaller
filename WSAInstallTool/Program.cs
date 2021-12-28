@@ -22,9 +22,10 @@ namespace WSAInstallTool
             IniUtil.Instance.Init();
             if (args.Length == 0)
             {
+                LangUtil.Instance.Init();
                 if (!IsAdministrator())
                 {
-                    MessageBox.Show("部分设置项需要操作注册表，请使用管理员身份运行此软件！", "Apk Installer");
+                    MessageBox.Show(LangUtil.Instance.GetLauncherTip(), "Apk Installer", MessageBoxButtons.OK);
                     return;
                 }
                 Application.Run(new MainForm());

@@ -54,6 +54,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +72,10 @@
     <Compile Include="AppForm\PermissionForm.Designer.cs">
       <DependentUpon>PermissionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppModel\AppString.cs" />
+    <Compile Include="AppModel\SupportLanguage.cs" />
+    <Compile Include="Util\CommonUtil.cs" />
+    <Compile Include="Util\LangUtil.cs" />
     <Compile Include="Util\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
