@@ -35,14 +35,15 @@ namespace WSAInstallTool
             InitializeComponent();
         }
 
-        public InstallForm(String[] args) 
+        public InstallForm(String[] args)
         {
             this.args = args;
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void InstallForm_Load(object sender, EventArgs e)
         {
+            InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
             apkPath = @"C:\Users\haoyu\Desktop\110_49b6fa118f4a5d9906eb42a86b4d4ebe.apk";
@@ -50,16 +51,19 @@ namespace WSAInstallTool
             {
                 apkPath = args[0];
             }
-          
+
             //string apkPath = "C:\\Users\\haoyu\\Desktop\\106_f0c49f2b285b39d89d87a3c5747ea155.apk";
 
             string result = CMDUtil.ExecCMD("aapt.exe", "dump badging \"" + apkPath + "\"");
 
             AAPTParseUtil aaptParseUtil = new AAPTParseUtil(result);
 
-            packageNameLabel.Text = "包名：" + aaptParseUtil.GetPackageName();
-            versionNameLabel.Text = "版本名称：" + aaptParseUtil.GetVersionName();
-            minVersionLabel.Text = "最低支持版本：" + aaptParseUtil.getMinSupportVersion();
+            // 包名
+            packageNameLabel.Text = LangUtil.Instance.GetPackageName() + 
+                (string.IsNullOrEmpty(aaptParseUtil.GetPackageName()) ? LangUtil.Instance.GetAppUnknown() : aaptParseUtil.GetPackageName());
+            versionNameLabel.Text = LangUtil.Instance.GetVersionName() +
+                (string.IsNullOrEmpty(aaptParseUtil.GetVersionName()) ? LangUtil.Instance.GetAppUnknown() : aaptParseUtil.GetVersionName()); ;
+            minVersionLabel.Text = LangUtil.Instance.GetMinVersionName() + aaptParseUtil.getMinSupportVersion();
 
             // 权限
             StringBuilder permissionStringBuilder = new StringBuilder();
@@ -81,13 +85,14 @@ namespace WSAInstallTool
                 }
                 moreLinkLabel.Visible = false;
             }
-            permissionLabel.Text = "权限：\n" + permissionStringBuilder.ToString();
+            permissionLabel.Text = LangUtil.Instance.GetPersimissions() + "\n"
+                + (string.IsNullOrEmpty(permissionStringBuilder.ToString().Trim()) ? LangUtil.Instance.GetNothing() : permissionStringBuilder.ToString().Trim());
 
             // APP 名称
-            appNameLabel.Text = aaptParseUtil.GetAppName();
+            appNameLabel.Text = string.IsNullOrEmpty(aaptParseUtil.GetAppName()) ? LangUtil.Instance.GetAppUnknown() : aaptParseUtil.GetAppName();
 
             // APP 大小
-            spaceLabel.Text = "大小：" + GetApkSpace();
+            spaceLabel.Text = LangUtil.Instance.GetSize() + GetApkSpace();
 
             // 获取APK图标
             try
@@ -112,7 +117,7 @@ namespace WSAInstallTool
         /// <returns></returns>
         private string GetApkSpace()
         {
-            string result = "未知";
+            string result = LangUtil.Instance.GetAppUnknown();
             FileStream file = null;
             try
             {
@@ -152,7 +157,7 @@ namespace WSAInstallTool
         {
             extraCommand = "";
 
-            string deviceResult = CMDUtil.ExecCMD("adb.exe","devices");
+            string deviceResult = CMDUtil.ExecCMD("adb.exe", "devices");
             deviceResult = deviceResult.Replace("List of devices attached", "")
                 .Replace("* daemon not running. starting it", "")
                 .Replace("* daemon started successfully *", "")
@@ -160,7 +165,7 @@ namespace WSAInstallTool
             //MessageBox.Show(deviceResult);
             if (string.IsNullOrEmpty(deviceResult))
             {
-                MessageBox.Show("没有检测到任何安卓设备！");
+                MessageBox.Show(LangUtil.Instance.GetNoAnyAndroidDevice());
                 return;
             }
             string[] devices = deviceResult.Split('\n');
@@ -170,7 +175,7 @@ namespace WSAInstallTool
                 CmdCallbackDelegate installCallback = InstallApkComplete;
 
                 installButton.Enabled = false;
-                installButton.Text = "安装中...";
+                installButton.Text = LangUtil.Instance.GetAppInstalling();
                 installProgressBar.Visible = true;
                 extraCommand = "";
 
@@ -214,7 +219,7 @@ namespace WSAInstallTool
                         CmdCallbackDelegate installCallback = InstallApkComplete;
 
                         installButton.Enabled = false;
-                        installButton.Text = "安装中...";
+                        installButton.Text = LangUtil.Instance.GetAppInstalling();
                         installProgressBar.Visible = true;
                         extraCommand = "-s " + deviceSelectForm.resultDevice + " ";
 
@@ -270,30 +275,31 @@ namespace WSAInstallTool
         private void InstallApkComplete(string result)
         {
 
-            this.Invoke(new MethodInvoker(delegate() {
+            this.Invoke(new MethodInvoker(delegate()
+            {
                 installButton.Enabled = true;
-                installButton.Text = "安装";
+                installButton.Text = LangUtil.Instance.GetAppInstall();
                 installProgressBar.Visible = false;
 
                 if (!string.IsNullOrEmpty(result) && result.Replace("Performing Streamed Install", "").Trim() == "Success")
                 {
                     if (PreferenceUtil.Instance.IsCloseAfterInstalled())
                     {
-                        // 关闭窗口
+                        // 关闭窗口     
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("安装成功！");
+                        MessageBox.Show(LangUtil.Instance.GetAppInstallSuccess());
                     }
                 }
                 else if (!string.IsNullOrEmpty(result) && result.Contains("[INSTALL_FAILED_VERSION_DOWNGRADE]"))
                 {
-                    MessageBox.Show("安装失败：检测到当前安装版本低于设备中已安装的版本。\n如果需要强制安装，请到设置页开启“降级覆盖安装”！");
+                    MessageBox.Show(LangUtil.Instance.GetAppInstallFailedDowngrade());
                 }
                 else
                 {
-                    MessageBox.Show("ERROR: " + result);
+                    MessageBox.Show(LangUtil.Instance.GetAppInstallFailed() + result);
                 }
             }));
         }
@@ -318,5 +324,16 @@ namespace WSAInstallTool
         {
             new SettingForm().Show();
         }
+
+        /// <summary>
+        /// 初始化语言
+        /// </summary>
+        private void InitLanguage()
+        {
+            this.Text = LangUtil.Instance.GetInstallFromTitle();
+            moreLinkLabel.Text = LangUtil.Instance.GetViewMorePermissions();
+            installButton.Text = LangUtil.Instance.GetAppInstall();
+        }
+
     }
 }

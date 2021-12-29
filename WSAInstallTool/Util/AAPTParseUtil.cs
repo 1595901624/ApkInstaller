@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO.Compression;
 using System.IO;
 using System.Diagnostics;
+using WSAInstallTool.Util;
 
 namespace WSAInstallTool
 {
@@ -279,7 +280,7 @@ namespace WSAInstallTool
             int minSdk = GetMinSdkVersion();
             if (minSdk == -1)
             {
-                return "无法识别的版本";
+                return LangUtil.Instance.GetUnrecognizedVersion();
             }
             foreach (AndroidSDKVersion sdkVersion in AndroidSDKVersion.Values)
             {
@@ -288,7 +289,7 @@ namespace WSAInstallTool
                     return "Android " + sdkVersion.version;
                 }
             }
-            return "无法识别的版本";
+            return LangUtil.Instance.GetUnrecognizedVersion();
         }
 
         /// <summary>

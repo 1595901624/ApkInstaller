@@ -30,7 +30,7 @@ namespace WSAInstallTool
             if (IsRegistryKeyExist(".apk"))
             {
                 // 删除.apk的相关信息
-                Console.WriteLine("exist!!!");
+                Debug.WriteLine("exist!!!");
                 DeleteClassesRootRegistryKey(".apk");
 
             }
@@ -112,7 +112,7 @@ namespace WSAInstallTool
             //1.设置关联APK文件
             associatedApk();
             CMDUtil.ExecBat("install.bat");
-            MessageBox.Show("安装完成！");
+            MessageBox.Show(LangUtil.Instance.GetInstallFinished());
         }
 
         private void uninstallButton_Click(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace WSAInstallTool
             //hklm.DeleteSubKey(@"HYWINXYZWSATOOL", false);
            
             hklm.Close();
-            MessageBox.Show("清除完成！请直接删除软件所在目录即可！");   
+            MessageBox.Show(LangUtil.Instance.GetUninstallFinished());   
         }
 
         private void aboutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -155,11 +155,11 @@ namespace WSAInstallTool
 
         private void readMeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string s = "1、点击“一键安装”将会自动关联APK文件，并且显示APK自身应用图标\n"
-                + "2、点击“一键清除”将会自动解关联APK文件，并且解除显示APK自身应用图标\n"
-                + "3、点击“一键清除”后如果依然显示APK图标是由于电脑软件的原因，重启电脑即可解决\n"
-                + "4、卸载软件：请先点击“一键清除”，然后直接删除软件所在目录即可。";
-            MessageBox.Show(s);
+            //string s = "1、点击“一键安装”将会自动关联APK文件，并且显示APK自身应用图标\n"
+            //    + "2、点击“一键清除”将会自动解关联APK文件，并且解除显示APK自身应用图标\n"
+            //    + "3、点击“一键清除”后如果依然显示APK图标是由于电脑软件的原因，重启电脑即可解决\n"
+            //    + "4、卸载软件：请先点击“一键清除”，然后直接删除软件所在目录即可。";
+            MessageBox.Show(LangUtil.Instance.GetReadMeMessageTip());
         }
 
         private void MainForm_Load(object sender, EventArgs e)
