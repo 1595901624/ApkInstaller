@@ -31,16 +31,66 @@ namespace WSAInstallTool.Util
 
         private PreferenceUtil()
         {
- 
+
         }
 
         public static PreferenceUtil Instance
         {
-            get {
-                lock(SyncObject)
+            get
+            {
+                lock (SyncObject)
                 {
                     return _instance ?? (_instance = new PreferenceUtil());
                 }
+            }
+        }
+
+        /// <summary>
+        /// 设置当前语言
+        /// </summary>
+        /// <param name="id"></param>
+        public void SetLanguage(int id)
+        {
+            IniUtil.Instance.WriteSettingValue(LANG_SECTION, LANG_DEFAULT, id.ToString());
+        }
+
+        public int GetLanguage()
+        {
+            string id = IniUtil.Instance.ReadSettingValue(LANG_SECTION, LANG_DEFAULT, "0");
+            try
+            {
+                return int.Parse(id);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[PreferenceUtil][Getlanguage] error => " + e.Message);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 获取语言包列表
+        /// </summary>
+        /// <returns></returns>
+        public List<SupportLanguage> GetLanguageList()
+        {
+            try
+            {
+                string currentLangId = IniUtil.Instance.ReadSettingValue(LANG_SECTION, LANG_DEFAULT, "0");
+                int id = int.Parse(currentLangId);
+                string json = System.IO.File.ReadAllText(CommonUtil.GetCurrentStartupPath() + @"\lang\lang.json");
+                List<SupportLanguage> sls = CommonUtil.JsonToObject<List<SupportLanguage>>(json);
+                Debug.WriteLine("[PreferenceUtil][GetLanguageList] lang size: " + sls.Count + ", currentLangId: " + id);
+                return sls;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[PreferenceUtil][GetLanguageList] error: " + ex.Message);
+                var sl = new SupportLanguage();
+                sl.name = "中国-简体中文";
+                sl.id = 0;
+                sl.file = "zh_CN.json";
+                return new List<SupportLanguage>() { sl };
             }
         }
 
@@ -137,7 +187,7 @@ namespace WSAInstallTool.Util
 
         public enum InstallMethod
         {
-            OVERLAY = 1, 
+            OVERLAY = 1,
             DEGRADED_OVERLAY = 2
         }
     }

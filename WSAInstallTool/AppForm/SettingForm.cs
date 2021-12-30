@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WSAInstallTool.AppModel;
 using WSAInstallTool.Util;
 
 namespace WSAInstallTool.AppForm
@@ -29,6 +30,7 @@ namespace WSAInstallTool.AppForm
             InitLanguage();
             InitInstallMethod();
             InitInstallSuccessStatus();
+            InitSelectLanguage();
 
             inited = true;
         }
@@ -81,9 +83,9 @@ namespace WSAInstallTool.AppForm
             {
                 bool check = afterInstalledCloseCheckBox.Checked;
                 Debug.WriteLine("[PreferenceUtil][afterInstalledCloseCheckBox_CheckedChanged] " + check);
-                PreferenceUtil.Instance.SetCloseAfterInstalled(check ? 1 : 0);  
+                PreferenceUtil.Instance.SetCloseAfterInstalled(check ? 1 : 0);
             }
-            
+
         }
 
         private void InitLanguage()
@@ -97,5 +99,30 @@ namespace WSAInstallTool.AppForm
             tipLabel.Text = LangUtil.Instance.GetSettingFormBottomTip();
         }
 
+        private void selectLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (inited)
+            {
+                var sl = (SupportLanguage)selectLanguageComboBox.SelectedItem;
+                Debug.WriteLine("[SettingForm][selectLanguageComboBox_SelectedIndexChanged] select => " + sl.id);
+
+                PreferenceUtil.Instance.SetLanguage(sl.id);
+            }
+        }
+
+        private void InitSelectLanguage()
+        {
+            var list = PreferenceUtil.Instance.GetLanguageList();
+            selectLanguageComboBox.DataSource = PreferenceUtil.Instance.GetLanguageList();
+            selectLanguageComboBox.DisplayMember = "name";
+            selectLanguageComboBox.ValueMember = "id";
+
+            int id = PreferenceUtil.Instance.GetLanguage();
+            if (id < list.Count)
+            {
+                selectLanguageComboBox.SelectedIndex = id;
+            }
+
+        }
     }
 }

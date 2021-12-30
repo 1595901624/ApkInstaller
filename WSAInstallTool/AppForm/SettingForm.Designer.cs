@@ -36,14 +36,20 @@
             this.degradedOverlayRadioButton = new System.Windows.Forms.RadioButton();
             this.overlayRadioButton = new System.Windows.Forms.RadioButton();
             this.tipLabel = new System.Windows.Forms.Label();
+            this.languageTabPage = new System.Windows.Forms.TabPage();
+            this.selectLanguageLabel = new System.Windows.Forms.Label();
+            this.selectLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.selectLanguageTipLabel = new System.Windows.Forms.Label();
             this.settingTabControl.SuspendLayout();
             this.adbTabPage.SuspendLayout();
             this.installMethodPanel.SuspendLayout();
+            this.languageTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // settingTabControl
             // 
             this.settingTabControl.Controls.Add(this.adbTabPage);
+            this.settingTabControl.Controls.Add(this.languageTabPage);
             this.settingTabControl.Location = new System.Drawing.Point(13, 12);
             this.settingTabControl.Name = "settingTabControl";
             this.settingTabControl.SelectedIndex = 0;
@@ -125,6 +131,47 @@
             this.tipLabel.TabIndex = 1;
             this.tipLabel.Text = "注:该页面下所有的偏好设置都是全局生效的。";
             // 
+            // languageTabPage
+            // 
+            this.languageTabPage.Controls.Add(this.selectLanguageTipLabel);
+            this.languageTabPage.Controls.Add(this.selectLanguageComboBox);
+            this.languageTabPage.Controls.Add(this.selectLanguageLabel);
+            this.languageTabPage.Location = new System.Drawing.Point(4, 22);
+            this.languageTabPage.Name = "languageTabPage";
+            this.languageTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.languageTabPage.Size = new System.Drawing.Size(546, 271);
+            this.languageTabPage.TabIndex = 1;
+            this.languageTabPage.Text = "语言设置";
+            this.languageTabPage.UseVisualStyleBackColor = true;
+            // 
+            // selectLanguageLabel
+            // 
+            this.selectLanguageLabel.AutoSize = true;
+            this.selectLanguageLabel.Location = new System.Drawing.Point(20, 48);
+            this.selectLanguageLabel.Name = "selectLanguageLabel";
+            this.selectLanguageLabel.Size = new System.Drawing.Size(53, 12);
+            this.selectLanguageLabel.TabIndex = 0;
+            this.selectLanguageLabel.Text = "选择语言";
+            // 
+            // selectLanguageComboBox
+            // 
+            this.selectLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectLanguageComboBox.FormattingEnabled = true;
+            this.selectLanguageComboBox.Location = new System.Drawing.Point(79, 45);
+            this.selectLanguageComboBox.Name = "selectLanguageComboBox";
+            this.selectLanguageComboBox.Size = new System.Drawing.Size(205, 20);
+            this.selectLanguageComboBox.TabIndex = 1;
+            this.selectLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.selectLanguageComboBox_SelectedIndexChanged);
+            // 
+            // selectLanguageTipLabel
+            // 
+            this.selectLanguageTipLabel.AutoSize = true;
+            this.selectLanguageTipLabel.Location = new System.Drawing.Point(20, 16);
+            this.selectLanguageTipLabel.Name = "selectLanguageTipLabel";
+            this.selectLanguageTipLabel.Size = new System.Drawing.Size(173, 12);
+            this.selectLanguageTipLabel.TabIndex = 2;
+            this.selectLanguageTipLabel.Text = "注：语言选择后需要下一次生效";
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -145,6 +192,8 @@
             this.adbTabPage.PerformLayout();
             this.installMethodPanel.ResumeLayout(false);
             this.installMethodPanel.PerformLayout();
+            this.languageTabPage.ResumeLayout(false);
+            this.languageTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +209,9 @@
         private System.Windows.Forms.Panel installMethodPanel;
         private System.Windows.Forms.CheckBox afterInstalledCloseCheckBox;
         private System.Windows.Forms.Label tipLabel;
+        private System.Windows.Forms.TabPage languageTabPage;
+        private System.Windows.Forms.Label selectLanguageLabel;
+        private System.Windows.Forms.ComboBox selectLanguageComboBox;
+        private System.Windows.Forms.Label selectLanguageTipLabel;
     }
 }
