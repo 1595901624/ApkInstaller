@@ -46,7 +46,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"C:\Users\haoyu\Desktop\110_49b6fa118f4a5d9906eb42a86b4d4ebe.apk";
+            apkPath = @"D:\软件\Root+Explorer+v4.4.4+Patched.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];

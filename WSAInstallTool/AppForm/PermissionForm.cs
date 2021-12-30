@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WSAInstallTool.Util;
 
 namespace WSAInstallTool
 {
@@ -26,6 +27,7 @@ namespace WSAInstallTool
 
         private void PermissionForm_Load(object sender, EventArgs e)
         {
+            InitLanguage();
             permissionListView.BeginUpdate();
             //permissionListView.Columns.Add("序号");
             //permissionListView.Columns.Add("权限");
@@ -39,7 +41,12 @@ namespace WSAInstallTool
             }
             permissionListView.EndUpdate();
         }
+
+        private void InitLanguage()
+        {
+            this.Text = LangUtil.Instance.GetPermissionFormTitle();
+            permissionListView.Columns[0].Text = LangUtil.Instance.GetColumnNumber();
+            permissionListView.Columns[1].Text = LangUtil.Instance.GetColumnPermission();
+        }
     }
-
-
 }

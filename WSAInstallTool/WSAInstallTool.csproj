@@ -76,10 +76,10 @@
     <Compile Include="AppModel\SupportLanguage.cs" />
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\LangUtil.cs" />
-    <Compile Include="Util\SettingForm.cs">
+    <Compile Include="AppForm\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Util\SettingForm.Designer.cs">
+    <Compile Include="AppForm\SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\AAPTParseUtil.cs" />
@@ -126,7 +126,7 @@
     <EmbeddedResource Include="AppForm\PermissionForm.resx">
       <DependentUpon>PermissionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Util\SettingForm.resx">
+    <EmbeddedResource Include="AppForm\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

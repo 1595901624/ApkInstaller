@@ -26,6 +26,7 @@ namespace WSAInstallTool.AppForm
         {
             inited = false;
 
+            InitLanguage();
             InitInstallMethod();
             InitInstallSuccessStatus();
 
@@ -85,6 +86,16 @@ namespace WSAInstallTool.AppForm
             
         }
 
+        private void InitLanguage()
+        {
+            this.Text = LangUtil.Instance.GetSettingFormTitle();
+            settingTabControl.TabPages[0].Text = LangUtil.Instance.GetInstallSettingTabTitle();
+            afterInstalledCloseCheckBox.Text = LangUtil.Instance.GetAfterInstallSuccessClose();
+            installMethodLabel.Text = LangUtil.Instance.GetInstallMethod();
+            overlayRadioButton.Text = LangUtil.Instance.GetOverlayInstall();
+            degradedOverlayRadioButton.Text = LangUtil.Instance.GetDowngradeOverlayInsall();
+            tipLabel.Text = LangUtil.Instance.GetSettingFormBottomTip();
+        }
 
     }
 }

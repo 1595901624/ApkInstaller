@@ -8,8 +8,6 @@ namespace WSAInstallTool
 {
     class AndroidPerimission
     {
-
-        //public static readonly AndroidPerimission WRITE_EXTERNAL_STORAGE = new AndroidPerimission("android.permission.WRITE_EXTERNAL_STORAGE", "允许程序写入外部存储");
         public static readonly AndroidPerimission ACCESS_COARSE_LOCATION = new AndroidPerimission("android.permission.ACCESS_COARSE_LOCATION", "通过WiFi或移动基站的方式获取用户粗略的经纬度信息，定位精度大概误差在30~1500米");
         public static readonly AndroidPerimission ACCESS_FINE_LOCATION = new AndroidPerimission("android.permission.ACCESS_FINE_LOCATION", "通过GPS芯片接收卫星的定位信息，定位精度达10米以内");
         public static readonly AndroidPerimission ACCESS_LOCATION_EXTRA_COMMANDS = new AndroidPerimission("android.permission.ACCESS_LOCATION_EXTRA_COMMANDS", "允许程序访问额外的定位提供者指令");

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WSAInstallTool.Util;
 
 namespace WSAInstallTool
 {
@@ -26,6 +27,7 @@ namespace WSAInstallTool
 
         private void DeviceSelectForm_Load(object sender, EventArgs e)
         {
+            InitLanguage();
             foreach (string str in mDevcies)
             {
                 deviceComboBox.Items.Add(str);
@@ -48,6 +50,13 @@ namespace WSAInstallTool
         private void DeviceSelectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void InitLanguage()
+        {
+            this.Text = LangUtil.Instance.GetDeviceSelectFormTitle();
+            deviceSelectTipLabel.Text = LangUtil.Instance.GetDeviceSelectTIp();
+            okButton.Text = LangUtil.Instance.GetConfirmInstall();
         }
     }
 }

@@ -23,13 +23,14 @@ namespace WSAInstallTool.Util
 
         private LangUtil()
         {
- 
+
         }
 
         public static LangUtil Instance
         {
-            get {
-                lock(SyncObject)
+            get
+            {
+                lock (SyncObject)
                 {
                     return _instance ?? (_instance = new LangUtil());
                 }
@@ -46,7 +47,7 @@ namespace WSAInstallTool.Util
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[LangUtil][Init] error = " +ex.Message);
+                Debug.WriteLine("[LangUtil][Init] error = " + ex.Message);
                 mAppString = new AppString();
             }
         }
@@ -189,5 +190,52 @@ namespace WSAInstallTool.Util
         {
             return mAppString.unrecognizedVersion ?? "无法识别的版本";
         }
+
+        public string GetDeviceSelectFormTitle()
+        {
+            return mAppString.deviceSelectFormTitle ?? "选择安装的设备";
+        }
+
+        public string GetDeviceSelectTIp()
+        {
+            return mAppString.deviceSelectTip ?? "发现多款安卓设备，请选择要安装的设备：";
+        }
+
+        public string GetConfirmInstall()
+        {
+            return mAppString.confirmInstall ?? "确定安装";
+        }
+
+        public string GetPermissionFormTitle()
+        {
+            return mAppString.permissionFormTitle ?? "所有权限";
+        }
+
+        public string GetColumnNumber()
+        {
+            return mAppString.columnNumber ?? "序号";
+        }
+
+        public string GetColumnPermission()
+        {
+            return mAppString.columnPermission ?? "权限";
+        }
+
+        public string GetSettingFormTitle() { return mAppString.settingFormTitle ?? "偏好设置"; }
+
+        public string GetInstallSettingTabTitle() { return mAppString.installSettingTabTitle ?? "Apk安装设置"; }
+
+        public string GetAfterInstallSuccessClose() { return mAppString.afterInstallSuccessClose ?? "安装成功后自动关闭窗口"; }
+
+        public string GetInstallMethod() { return mAppString.installMethod ?? "安装方式："; }
+
+        public string GetOverlayInstall() { return mAppString.overlayInstall ?? "覆盖安装"; }
+
+        public string GetDowngradeOverlayInsall() { return mAppString.downgradeOverlayInsall ?? "降级覆盖安装"; }
+
+        public string GetSettingFormBottomTip() { return mAppString.settingFormBottomTip ?? "注：该页面下的所有设置全局生效。"; }
+
+
+
     }
 }

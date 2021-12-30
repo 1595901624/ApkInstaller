@@ -90,5 +90,44 @@ namespace WSAInstallTool.AppModel
 
         [DataMember]
         public string unrecognizedVersion { set; get; }
+
+        [DataMember]
+        public string deviceSelectFormTitle { set; get;}
+
+        [DataMember]
+        public string deviceSelectTip { set; get; }
+
+        [DataMember]
+        public string confirmInstall { set; get; }
+
+        [DataMember]
+        public string permissionFormTitle { set; get;}
+
+        [DataMember]
+        public string columnNumber { set; get; }
+
+        [DataMember]
+        public string columnPermission { set; get; }
+
+        [DataMember]
+        public string settingFormTitle { set; get;}
+
+        [DataMember]
+        public string installSettingTabTitle { set; get; }
+
+        [DataMember]
+        public string afterInstallSuccessClose { set; get; }
+
+        [DataMember]
+        public string installMethod { set; get; }
+
+        [DataMember]
+        public string overlayInstall { set; get; }
+
+        [DataMember]
+        public string downgradeOverlayInsall { set; get; }
+
+        [DataMember]
+        public string settingFormBottomTip { set; get; }
     }
 }
