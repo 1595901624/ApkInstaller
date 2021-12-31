@@ -1,6 +1,6 @@
 # Apk Installer
 
-![](https://img.shields.io/badge/version-v1.2.3.0-blue.svg?style=flat)![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
+![](https://img.shields.io/badge/version-v1.2.3.0-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
 
 #### 介绍
 
@@ -105,3 +105,9 @@ ApkShellext2
 * 支持多国语言（内测中...）
 * 支持恶意软件识别（远景计划）
 * UWP版本（远景计划）
+
+#### 软件下载
+
+* 通过gitee的发行版下载
+* [蓝奏云网盘下载，密码：52pj](https://wwi.lanzouj.com/b04c1p59c)
+
