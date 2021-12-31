@@ -235,6 +235,13 @@ namespace WSAInstallTool.Util
 
         public string GetSettingFormBottomTip() { return mAppString.settingFormBottomTip ?? "注：该页面下的所有设置全局生效。"; }
 
+        public string GetLanguageSettingTitle() { return mAppString.languageSettingTitle ?? "语言设置"; }
+
+        public string GetSelectLanguage() { return mAppString.selectLanguage ?? "选择语言"; }
+
+        public string GetSelectLanguageTip() { return mAppString.selectLanguageTip ?? "注：语言选择后需要下一次生效"; }
+
+        // 以下是权限翻译
         public string GetACCESS_COARSE_LOCATION() { return mAppString.LANG_ACCESS_COARSE_LOCATION ?? "通过WiFi或移动基站的方式获取用户粗略的经纬度信息，定位精度大概误差在30~1500米"; }
         public string GetACCESS_FINE_LOCATION() { return mAppString.LANG_ACCESS_FINE_LOCATION ?? "通过GPS芯片接收卫星的定位信息，定位精度达10米以内"; }
         public string GetACCESS_LOCATION_EXTRA_COMMANDS() { return mAppString.LANG_ACCESS_LOCATION_EXTRA_COMMANDS ?? "允许程序访问额外的定位提供者指令"; }

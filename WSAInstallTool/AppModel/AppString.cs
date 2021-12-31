@@ -130,6 +130,15 @@ namespace WSAInstallTool.AppModel
         [DataMember]
         public string settingFormBottomTip { set; get; }
 
+        [DataMember]
+        public string languageSettingTitle { set; get; }
+
+        [DataMember]
+        public string selectLanguage { set; get; }
+
+        [DataMember]
+        public string selectLanguageTip { set; get; }
+
         /*********************[以下是权限列表翻译]  START***********************/
         [DataMember]
         public string LANG_ACCESS_COARSE_LOCATION { set; get; }

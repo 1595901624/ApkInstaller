@@ -91,12 +91,18 @@ namespace WSAInstallTool.AppForm
         private void InitLanguage()
         {
             this.Text = LangUtil.Instance.GetSettingFormTitle();
+            // 安装设置
             settingTabControl.TabPages[0].Text = LangUtil.Instance.GetInstallSettingTabTitle();
             afterInstalledCloseCheckBox.Text = LangUtil.Instance.GetAfterInstallSuccessClose();
             installMethodLabel.Text = LangUtil.Instance.GetInstallMethod();
             overlayRadioButton.Text = LangUtil.Instance.GetOverlayInstall();
             degradedOverlayRadioButton.Text = LangUtil.Instance.GetDowngradeOverlayInsall();
             tipLabel.Text = LangUtil.Instance.GetSettingFormBottomTip();
+
+            // 语言设置
+            settingTabControl.TabPages[1].Text = LangUtil.Instance.GetLanguageSettingTitle();
+            selectLanguageLabel.Text = LangUtil.Instance.GetSelectLanguage();
+            selectLanguageTipLabel.Text = LangUtil.Instance.GetSelectLanguageTip();
         }
 
         private void selectLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)

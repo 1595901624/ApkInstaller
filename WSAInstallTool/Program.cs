@@ -23,13 +23,13 @@ namespace WSAInstallTool
             LangUtil.Instance.Init();
             if (args.Length == 0)
             {
-                //if (!IsAdministrator())
-                //{
-                //    MessageBox.Show(LangUtil.Instance.GetLauncherTip(), "Apk Installer", MessageBoxButtons.OK);
-                //    return;
-                //}
-                //Application.Run(new MainForm());
-                Application.Run(new InstallForm(args));
+                if (!IsAdministrator())
+                {
+                    MessageBox.Show(LangUtil.Instance.GetLauncherTip(), "Apk Installer", MessageBoxButtons.OK);
+                    return;
+                }
+                Application.Run(new MainForm());
+                //Application.Run(new InstallForm(args));
             }
             else 
             {
