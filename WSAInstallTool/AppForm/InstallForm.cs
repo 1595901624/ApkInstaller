@@ -46,7 +46,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"D:\软件\Root+Explorer+v4.4.4+Patched.apk";
+            apkPath = @"D:\软件\Current Activity_v1.5.2-play_apkpure.com.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];

@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using WSAInstallTool.Util;
+using WSAInstallTool.AppForm;
 
 namespace WSAInstallTool
 {
@@ -169,6 +170,12 @@ namespace WSAInstallTool
             uninstallButton.Text = LangUtil.Instance.GetOnKeyUninstall();
             aboutLinkLabel.Text = LangUtil.Instance.GetAbout();
             readMeLabel.Text = LangUtil.Instance.GetReadMe();
+            settingLinkLabel.Text = LangUtil.Instance.GetSettingFormTitle();
+        }
+
+        private void settingLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new SettingForm().Show();
         }
     }
 }

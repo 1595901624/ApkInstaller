@@ -42,7 +42,7 @@ namespace WSAInstallTool.Util
             try
             {
                 string json = System.IO.File.ReadAllText(PreferenceUtil.Instance.GetCurrentLangPath());
-                Debug.WriteLine("[LangUtil][Init] lang json:" + json);
+                //Debug.WriteLine("[LangUtil][Init] lang json:" + json);
                 mAppString = CommonUtil.JsonToObject<AppString>(json);
             }
             catch (Exception ex)

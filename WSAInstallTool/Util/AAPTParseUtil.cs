@@ -175,10 +175,20 @@ namespace WSAInstallTool
                         logoPath = GetValue(str.Trim(), "application-icon-120:'", "'");
                         break;
                     }
+                    if (str.Contains("application-icon-160"))
+                    {
+                        logoPath = GetValue(str.Trim(), "application-icon-160:'", "'");
+                        break;
+                    }
                 }
                 if (logoPath == null || logoPath.Length == 0) return "";
                 string logoFileName = Path.GetFileName(logoPath);
-                //Console.WriteLine("..." + logoPath);
+                Debug.WriteLine("[AAPTParseUtil][GetApkIcon]logoFileName==" + logoFileName);
+
+                if (logoFileName.EndsWith(".xml"))
+                {
+                    logoFileName = logoFileName.Replace(".xml", ".png");
+                }
 
                 // 2. 解压logo
                 using (ZipArchive zipArchive = ZipFile.Open(apkPath, ZipArchiveMode.Read))

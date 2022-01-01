@@ -37,6 +37,7 @@
             this.associateApkGroup = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.readMeLabel = new System.Windows.Forms.LinkLabel();
+            this.settingLinkLabel = new System.Windows.Forms.LinkLabel();
             this.associateApkGroup.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -134,11 +135,23 @@
             this.readMeLabel.Text = "使用前必读";
             this.readMeLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.readMeLabel_LinkClicked);
             // 
+            // settingLinkLabel
+            // 
+            this.settingLinkLabel.AutoSize = true;
+            this.settingLinkLabel.Location = new System.Drawing.Point(121, 180);
+            this.settingLinkLabel.Name = "settingLinkLabel";
+            this.settingLinkLabel.Size = new System.Drawing.Size(53, 12);
+            this.settingLinkLabel.TabIndex = 8;
+            this.settingLinkLabel.TabStop = true;
+            this.settingLinkLabel.Text = "偏好设置";
+            this.settingLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.settingLinkLabel_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 204);
+            this.Controls.Add(this.settingLinkLabel);
             this.Controls.Add(this.readMeLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.associateApkGroup);
@@ -168,5 +181,6 @@
         private System.Windows.Forms.GroupBox associateApkGroup;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel readMeLabel;
+        private System.Windows.Forms.LinkLabel settingLinkLabel;
     }
 }
