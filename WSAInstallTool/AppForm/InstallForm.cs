@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -157,12 +158,18 @@ namespace WSAInstallTool
         {
             extraCommand = "";
 
+            string adbStartServerPattern = "\\*[\\w:; ]*";
+
+
             string deviceResult = CMDUtil.ExecCMD("adb.exe", "devices");
             deviceResult = deviceResult.Replace("List of devices attached", "")
-                .Replace("* daemon not running. starting it", "")
-                .Replace("* daemon started successfully *", "")
+                //.Replace("* daemon not running. starting it", "")
+                //.Replace("* daemon not running; starting now at tcp:5037", "")
+                //.Replace("* daemon started successfully *", "")
                 .Trim();
+            deviceResult = Regex.Replace(deviceResult, adbStartServerPattern, "").Trim();
             //MessageBox.Show(deviceResult);
+            Debug.WriteLine("[InstallForm][installButton_Click] deviceResult = " + deviceResult);
             if (string.IsNullOrEmpty(deviceResult))
             {
                 MessageBox.Show(LangUtil.Instance.GetNoAnyAndroidDevice());
@@ -193,10 +200,10 @@ namespace WSAInstallTool
                 List<string> devicesList = new List<string>();
                 foreach (string device in devices)
                 {
-                    Debug.WriteLine(device);
+                    //Debug.WriteLine(device);
 
                     string[] deviceNames = device.Split('\t');
-                    Debug.WriteLine(deviceNames.Length);
+                    //Debug.WriteLine(deviceNames.Length);
                     if (deviceNames.Length == 2)
                     {
 
