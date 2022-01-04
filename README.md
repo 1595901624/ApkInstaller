@@ -1,6 +1,6 @@
 # Apk Installer
 
-![](https://img.shields.io/badge/version-v1.2.3.0-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
+![](https://img.shields.io/badge/latest%20version-v1.3.0.0%20Beta-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
 
 #### 介绍
 
@@ -38,7 +38,7 @@ Apk Installer（原名:WSAInstallTool，自1.2.3.0版本后更名）是一款Win
 
 #### 多语言包支持
 
-自`1.2.5.0`开始将支持多语言配置。该软件默认集成了**中国-简体中文**、**中國-繁体中文（香港）**、**中國-繁体中文（台灣）**。
+自`1.3.0.0`开始将支持多语言配置。该软件默认集成了**中国-简体中文**、**中國-繁体中文（香港）**、**中國-繁体中文（台灣）**。
 
 ##### 如何支持更多语言？
 
@@ -102,7 +102,7 @@ ApkShellext2
 * 支持APK图标显示（1.1.0.5版本已经支持）
 * 支持Android所有权限提示（1.0.3.0版本已经支持）
 * 支持敏感权限重点提醒
-* 支持多国语言（内测中...）
+* 支持多国语言（1.3.0.0 Beta）
 * 支持恶意软件识别（远景计划）
 * UWP版本（远景计划）
 
