@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -28,8 +29,13 @@ namespace WSAInstallTool
         // 完整的权限列表
         private List<string> permissionList;
 
+        private AAPTParseUtil aaptParseUtil;
+
         // Cmd 回调委托
         private delegate void CmdCallbackDelegate(string result);
+
+        // 检测apk是否存在风险的委托
+        private delegate void BadApkDelegate(bool isBad);
 
         public InstallForm()
         {
@@ -47,7 +53,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"D:\软件\Current Activity_v1.5.2-play_apkpure.com.apk";
+            apkPath = @"C:\Users\haoyu\Desktop\armadillo.studio_f8fe21eb.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
@@ -57,14 +63,19 @@ namespace WSAInstallTool
 
             string result = CMDUtil.ExecCMD("aapt.exe", "dump badging \"" + apkPath + "\"");
 
-            AAPTParseUtil aaptParseUtil = new AAPTParseUtil(result);
+            aaptParseUtil = new AAPTParseUtil(result);
 
             // 包名
-            packageNameLabel.Text = LangUtil.Instance.GetPackageName() + 
+            packageNameLabel.Text = LangUtil.Instance.GetPackageName() +
                 (string.IsNullOrEmpty(aaptParseUtil.GetPackageName()) ? LangUtil.Instance.GetAppUnknown() : aaptParseUtil.GetPackageName());
             versionNameLabel.Text = LangUtil.Instance.GetVersionName() +
                 (string.IsNullOrEmpty(aaptParseUtil.GetVersionName()) ? LangUtil.Instance.GetAppUnknown() : aaptParseUtil.GetVersionName()); ;
             minVersionLabel.Text = LangUtil.Instance.GetMinVersionName() + aaptParseUtil.getMinSupportVersion();
+
+            // 判断APK状态
+            BadApkDelegate badApkDelegate = CheckApkSafetyComplete;
+            Thread ts = new Thread(CheckApkSafety);
+            ts.Start(badApkDelegate);
 
             // 权限
             StringBuilder permissionStringBuilder = new StringBuilder();
@@ -107,7 +118,59 @@ namespace WSAInstallTool
                 Debug.WriteLine("load logo error => " + ex.Message);
             }
 
+            // Hash值
+            //MessageBox.Show(HashUtil.GetSha256Hash(apkPath));
         }
+
+        /* ************************************检测Apk状态 START*************************************************/
+        /// <summary>
+        /// 检测Apk是否为正常
+        /// </summary>
+        /// <returns></returns>
+        private void CheckApkSafety(object obj)
+        {
+            // 根据配置是否开启apk检测
+            if (!PreferenceUtil.Instance.GetScanBadApk())
+            {
+                return;
+            }
+            BadApkDelegate callback = obj as BadApkDelegate;
+            try
+            {
+                bool isBad = CommonUtil.IsBadApk(aaptParseUtil.GetPackageName(), HashUtil.GetSha256Hash(apkPath));
+                Console.WriteLine("[InstallForm][CheckApkSafety] isBad = " + isBad);
+                callback(isBad);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[InstallForm][CheckApkSafety] error => " + ex.Message);
+                callback(false);
+            }
+        }
+
+        /// <summary>
+        /// Apk状态检测完成
+        /// </summary>
+        /// <param name="isBadApk"></param>
+        private void CheckApkSafetyComplete(bool isBadApk)
+        {
+            this.Invoke(new MethodInvoker(delegate()
+            {
+                badApkPictureBox.Visible = true;
+                if (isBadApk)
+                {
+                    badApkPictureBox.Image = Properties.Resources.bad_apk;
+                }
+                else
+                {
+                    badApkPictureBox.Image = Properties.Resources.bad_apk_safety;
+                }
+            }));
+        }
+
+        /* ************************************检测Apk状态 E N D*************************************************/
+
+
 
         /// <summary>
         /// 获取APK大小
@@ -340,6 +403,11 @@ namespace WSAInstallTool
             this.Text = LangUtil.Instance.GetInstallFromTitle();
             moreLinkLabel.Text = LangUtil.Instance.GetViewMorePermissions();
             installButton.Text = LangUtil.Instance.GetAppInstall();
+        }
+
+        private void packageNameLabel_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(aaptParseUtil.GetPackageName());
         }
 
     }

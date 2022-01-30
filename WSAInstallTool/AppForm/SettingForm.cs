@@ -31,6 +31,7 @@ namespace WSAInstallTool.AppForm
             InitInstallMethod();
             InitInstallSuccessStatus();
             InitSelectLanguage();
+            InitScanApkStatus();
 
             inited = true;
         }
@@ -88,6 +89,23 @@ namespace WSAInstallTool.AppForm
 
         }
 
+
+        private void badApkCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (inited)
+            {
+                bool check = badApkCheckBox.Checked;
+                Debug.WriteLine("[PreferenceUtil][badApkCheckBox_CheckedChanged] " + check);
+                PreferenceUtil.Instance.SetScanBadApk(check ? 1 : 0);
+            }
+        }
+
+        private void InitScanApkStatus()
+        {
+            bool check = PreferenceUtil.Instance.GetScanBadApk();
+            badApkCheckBox.Checked = check;
+        }
+
         private void InitLanguage()
         {
             this.Text = LangUtil.Instance.GetSettingFormTitle();
@@ -116,6 +134,7 @@ namespace WSAInstallTool.AppForm
             }
         }
 
+
         private void InitSelectLanguage()
         {
             var list = PreferenceUtil.Instance.GetLanguageList();
@@ -130,5 +149,7 @@ namespace WSAInstallTool.AppForm
             }
 
         }
+
+  
     }
 }

@@ -35,21 +35,26 @@
             this.installMethodLabel = new System.Windows.Forms.Label();
             this.degradedOverlayRadioButton = new System.Windows.Forms.RadioButton();
             this.overlayRadioButton = new System.Windows.Forms.RadioButton();
-            this.tipLabel = new System.Windows.Forms.Label();
             this.languageTabPage = new System.Windows.Forms.TabPage();
-            this.selectLanguageLabel = new System.Windows.Forms.Label();
-            this.selectLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.selectLanguageTipLabel = new System.Windows.Forms.Label();
+            this.selectLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.selectLanguageLabel = new System.Windows.Forms.Label();
+            this.experimentalFunctionTabPage = new System.Windows.Forms.TabPage();
+            this.maliciousApkTipLabel = new System.Windows.Forms.Label();
+            this.badApkCheckBox = new System.Windows.Forms.CheckBox();
+            this.tipLabel = new System.Windows.Forms.Label();
             this.settingTabControl.SuspendLayout();
             this.adbTabPage.SuspendLayout();
             this.installMethodPanel.SuspendLayout();
             this.languageTabPage.SuspendLayout();
+            this.experimentalFunctionTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // settingTabControl
             // 
             this.settingTabControl.Controls.Add(this.adbTabPage);
             this.settingTabControl.Controls.Add(this.languageTabPage);
+            this.settingTabControl.Controls.Add(this.experimentalFunctionTabPage);
             this.settingTabControl.Location = new System.Drawing.Point(13, 12);
             this.settingTabControl.Name = "settingTabControl";
             this.settingTabControl.SelectedIndex = 0;
@@ -122,15 +127,6 @@
             this.overlayRadioButton.UseVisualStyleBackColor = true;
             this.overlayRadioButton.CheckedChanged += new System.EventHandler(this.overlayRadioButton_CheckedChanged);
             // 
-            // tipLabel
-            // 
-            this.tipLabel.AutoSize = true;
-            this.tipLabel.Location = new System.Drawing.Point(15, 312);
-            this.tipLabel.Name = "tipLabel";
-            this.tipLabel.Size = new System.Drawing.Size(251, 12);
-            this.tipLabel.TabIndex = 1;
-            this.tipLabel.Text = "注:该页面下所有的偏好设置都是全局生效的。";
-            // 
             // languageTabPage
             // 
             this.languageTabPage.Controls.Add(this.selectLanguageTipLabel);
@@ -144,14 +140,14 @@
             this.languageTabPage.Text = "语言设置";
             this.languageTabPage.UseVisualStyleBackColor = true;
             // 
-            // selectLanguageLabel
+            // selectLanguageTipLabel
             // 
-            this.selectLanguageLabel.AutoSize = true;
-            this.selectLanguageLabel.Location = new System.Drawing.Point(20, 48);
-            this.selectLanguageLabel.Name = "selectLanguageLabel";
-            this.selectLanguageLabel.Size = new System.Drawing.Size(53, 12);
-            this.selectLanguageLabel.TabIndex = 0;
-            this.selectLanguageLabel.Text = "选择语言";
+            this.selectLanguageTipLabel.AutoSize = true;
+            this.selectLanguageTipLabel.Location = new System.Drawing.Point(20, 16);
+            this.selectLanguageTipLabel.Name = "selectLanguageTipLabel";
+            this.selectLanguageTipLabel.Size = new System.Drawing.Size(173, 12);
+            this.selectLanguageTipLabel.TabIndex = 2;
+            this.selectLanguageTipLabel.Text = "注：语言选择后需要下一次生效";
             // 
             // selectLanguageComboBox
             // 
@@ -163,14 +159,55 @@
             this.selectLanguageComboBox.TabIndex = 1;
             this.selectLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.selectLanguageComboBox_SelectedIndexChanged);
             // 
-            // selectLanguageTipLabel
+            // selectLanguageLabel
             // 
-            this.selectLanguageTipLabel.AutoSize = true;
-            this.selectLanguageTipLabel.Location = new System.Drawing.Point(20, 16);
-            this.selectLanguageTipLabel.Name = "selectLanguageTipLabel";
-            this.selectLanguageTipLabel.Size = new System.Drawing.Size(173, 12);
-            this.selectLanguageTipLabel.TabIndex = 2;
-            this.selectLanguageTipLabel.Text = "注：语言选择后需要下一次生效";
+            this.selectLanguageLabel.AutoSize = true;
+            this.selectLanguageLabel.Location = new System.Drawing.Point(20, 48);
+            this.selectLanguageLabel.Name = "selectLanguageLabel";
+            this.selectLanguageLabel.Size = new System.Drawing.Size(53, 12);
+            this.selectLanguageLabel.TabIndex = 0;
+            this.selectLanguageLabel.Text = "选择语言";
+            // 
+            // experimentalFunctionTabPage
+            // 
+            this.experimentalFunctionTabPage.Controls.Add(this.maliciousApkTipLabel);
+            this.experimentalFunctionTabPage.Controls.Add(this.badApkCheckBox);
+            this.experimentalFunctionTabPage.Location = new System.Drawing.Point(4, 22);
+            this.experimentalFunctionTabPage.Name = "experimentalFunctionTabPage";
+            this.experimentalFunctionTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.experimentalFunctionTabPage.Size = new System.Drawing.Size(546, 271);
+            this.experimentalFunctionTabPage.TabIndex = 2;
+            this.experimentalFunctionTabPage.Text = "实验室功能";
+            this.experimentalFunctionTabPage.UseVisualStyleBackColor = true;
+            // 
+            // maliciousApkTipLabel
+            // 
+            this.maliciousApkTipLabel.Location = new System.Drawing.Point(28, 78);
+            this.maliciousApkTipLabel.Name = "maliciousApkTipLabel";
+            this.maliciousApkTipLabel.Size = new System.Drawing.Size(473, 48);
+            this.maliciousApkTipLabel.TabIndex = 1;
+            this.maliciousApkTipLabel.Text = "注：恶意软件识别功能需要电脑连接网络，该功能目前尚处于实验性阶段，识别率较低，甚至出现误报。当然随着用户使用率的提高，识别率会逐渐提高。由于该功能需要使用平台去检" +
+    "测，为缓解服务器压力，默认关闭此功能。";
+            // 
+            // badApkCheckBox
+            // 
+            this.badApkCheckBox.AutoSize = true;
+            this.badApkCheckBox.Location = new System.Drawing.Point(30, 38);
+            this.badApkCheckBox.Name = "badApkCheckBox";
+            this.badApkCheckBox.Size = new System.Drawing.Size(144, 16);
+            this.badApkCheckBox.TabIndex = 0;
+            this.badApkCheckBox.Text = "启用恶意软件识别功能";
+            this.badApkCheckBox.UseVisualStyleBackColor = true;
+            this.badApkCheckBox.CheckedChanged += new System.EventHandler(this.badApkCheckBox_CheckedChanged);
+            // 
+            // tipLabel
+            // 
+            this.tipLabel.AutoSize = true;
+            this.tipLabel.Location = new System.Drawing.Point(15, 312);
+            this.tipLabel.Name = "tipLabel";
+            this.tipLabel.Size = new System.Drawing.Size(251, 12);
+            this.tipLabel.TabIndex = 1;
+            this.tipLabel.Text = "注:该页面下所有的偏好设置都是全局生效的。";
             // 
             // SettingForm
             // 
@@ -194,6 +231,8 @@
             this.installMethodPanel.PerformLayout();
             this.languageTabPage.ResumeLayout(false);
             this.languageTabPage.PerformLayout();
+            this.experimentalFunctionTabPage.ResumeLayout(false);
+            this.experimentalFunctionTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +252,8 @@
         private System.Windows.Forms.Label selectLanguageLabel;
         private System.Windows.Forms.ComboBox selectLanguageComboBox;
         private System.Windows.Forms.Label selectLanguageTipLabel;
+        private System.Windows.Forms.TabPage experimentalFunctionTabPage;
+        private System.Windows.Forms.CheckBox badApkCheckBox;
+        private System.Windows.Forms.Label maliciousApkTipLabel;
     }
 }

@@ -165,6 +165,8 @@ namespace WSAInstallTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // 每次进入这个页面都初始化黑名单
+            CommonUtil.InitBlackListBackground();
             associateApkGroup.Text = LangUtil.Instance.GetAssociateApk();
             installButton.Text = LangUtil.Instance.GetOneKeyInstall();
             uninstallButton.Text = LangUtil.Instance.GetOnKeyUninstall();

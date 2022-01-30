@@ -12,7 +12,6 @@ namespace WSAInstallTool.Util
     class IniUtil
     {
 
-
         //读写INI文件的API函数
         //[DllImport("kernel32", CharSet = CharSet.Auto, EntryPoint = "WritePrivateProfileStringA")]
         [DllImport("kernel32", CharSet = CharSet.Auto)]

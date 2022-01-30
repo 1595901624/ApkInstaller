@@ -16,6 +16,7 @@ namespace WSAInstallTool.Util
     {
         public const string INSTALL_SECTION = "install";
         public const string LANG_SECTION = "lang";
+        public const string OTHER_SECTION = "other";
 
         // 安装方式 1：覆盖安装 2：降级覆盖安装
         public const string INSTALL_METHOD = "installMethod";
@@ -25,6 +26,12 @@ namespace WSAInstallTool.Util
 
         // 默认语言
         public const string LANG_DEFAULT = "current";
+
+        // 黑名单更新时间
+        public const string UPDATE_BLACK_LIST_TIME = "updateBlackListTime";
+
+        // 恶意软件检测功能
+        public const String SCAN_BAD_APK = "scanBadApk";
 
         private static PreferenceUtil _instance = null;
         private static readonly object SyncObject = new object();
@@ -44,6 +51,64 @@ namespace WSAInstallTool.Util
                 }
             }
         }
+
+        /// <summary>
+        /// 设置当前恶意APK检测的状态
+        /// </summary>
+        /// <param name="check"></param>
+        public void SetScanBadApk(int check)
+        {
+            IniUtil.Instance.WriteSettingValue(OTHER_SECTION, SCAN_BAD_APK, check.ToString());
+        }
+
+        /// <summary>
+        /// 获取当前恶意APK检测配置的状态
+        /// </summary>
+        /// <returns></returns>
+        public bool GetScanBadApk()
+        {
+            string result = IniUtil.Instance.ReadSettingValue(OTHER_SECTION, SCAN_BAD_APK, "0");
+            try
+            {
+                if ("1".Equals(result))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Write("[PreferenceUtil][GetScanBadApk] error => " + e.Message);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 定时更新黑名单
+        /// </summary>
+        /// <returns></returns>
+        public void UpdateBlackListByTime()
+        {
+            try
+            {
+                string updateTimeStr = IniUtil.Instance.ReadSettingValue(OTHER_SECTION, UPDATE_BLACK_LIST_TIME, "0");
+                long updateTime = long.Parse(updateTimeStr);
+                if (CommonUtil.GetCurrentTimeStamps() - updateTime > 24 * 60 * 60 * 1000)
+                {
+                    // 更新时间超过一天，则更新黑名单
+                    CommonUtil.InitBlackListBackground();
+                    IniUtil.Instance.WriteSettingValue(OTHER_SECTION, UPDATE_BLACK_LIST_TIME, CommonUtil.GetCurrentTimeStamps().ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[PreferenceUtil][UpdateBlackListByTime] error:" + e.Message);
+                // 解析时间错误，则强制更新黑名单
+                CommonUtil.InitBlackListBackground();
+                IniUtil.Instance.WriteSettingValue(OTHER_SECTION, UPDATE_BLACK_LIST_TIME, CommonUtil.GetCurrentTimeStamps().ToString());
+
+            }
+        }
+
 
         /// <summary>
         /// 设置当前语言
