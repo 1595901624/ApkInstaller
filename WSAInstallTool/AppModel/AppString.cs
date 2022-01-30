@@ -139,6 +139,16 @@ namespace WSAInstallTool.AppModel
         [DataMember]
         public string selectLanguageTip { set; get; }
 
+        [DataMember]
+        public string experimentalFunctionTabTitle { set; get; }
+
+        [DataMember]
+        public string detectionMaliciousApk { set; get; }
+
+        [DataMember]
+        public string detectionMaliciousApkTip { set; get; }
+
+
         /*********************[以下是权限列表翻译]  START***********************/
         [DataMember]
         public string LANG_ACCESS_COARSE_LOCATION { set; get; }

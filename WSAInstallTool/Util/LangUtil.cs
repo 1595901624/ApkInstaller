@@ -241,6 +241,10 @@ namespace WSAInstallTool.Util
 
         public string GetSelectLanguageTip() { return mAppString.selectLanguageTip ?? "注：语言选择后需要下一次生效"; }
 
+        public string GetExperimentalFunction() { return mAppString.experimentalFunctionTabTitle ?? "实验室功能"; }
+        public string GetDetectionMaliciousApk() { return mAppString.detectionMaliciousApk ?? "启用恶意软件识别功能"; }
+        public string GetDetectionMaliciousApkTip() { return mAppString.detectionMaliciousApkTip ?? "注：恶意软件识别功能需要电脑连接网络，该功能目前尚处于实验性阶段，识别率较低，甚至出现误报。当然随着用户使用率的提高，识别率会逐渐提高。由于该功能需要使用平台去检测，为缓解服务器压力，默认关闭此功能。"; }
+
         // 以下是权限翻译
         public string GetACCESS_COARSE_LOCATION() { return mAppString.LANG_ACCESS_COARSE_LOCATION ?? "通过WiFi或移动基站的方式获取用户粗略的经纬度信息，定位精度大概误差在30~1500米"; }
         public string GetACCESS_FINE_LOCATION() { return mAppString.LANG_ACCESS_FINE_LOCATION ?? "通过GPS芯片接收卫星的定位信息，定位精度达10米以内"; }

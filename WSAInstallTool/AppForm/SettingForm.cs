@@ -121,6 +121,11 @@ namespace WSAInstallTool.AppForm
             settingTabControl.TabPages[1].Text = LangUtil.Instance.GetLanguageSettingTitle();
             selectLanguageLabel.Text = LangUtil.Instance.GetSelectLanguage();
             selectLanguageTipLabel.Text = LangUtil.Instance.GetSelectLanguageTip();
+
+            // 实验室功能
+            settingTabControl.TabPages[2].Text = LangUtil.Instance.GetExperimentalFunction();
+            maliciousApkTipLabel.Text = LangUtil.Instance.GetDetectionMaliciousApkTip();
+            badApkCheckBox.Text = LangUtil.Instance.GetDetectionMaliciousApk();
         }
 
         private void selectLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)

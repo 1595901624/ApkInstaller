@@ -106,7 +106,7 @@
             // degradedOverlayRadioButton
             // 
             this.degradedOverlayRadioButton.AutoSize = true;
-            this.degradedOverlayRadioButton.Location = new System.Drawing.Point(193, 18);
+            this.degradedOverlayRadioButton.Location = new System.Drawing.Point(303, 14);
             this.degradedOverlayRadioButton.Name = "degradedOverlayRadioButton";
             this.degradedOverlayRadioButton.Size = new System.Drawing.Size(95, 16);
             this.degradedOverlayRadioButton.TabIndex = 1;
@@ -118,7 +118,7 @@
             // overlayRadioButton
             // 
             this.overlayRadioButton.AutoSize = true;
-            this.overlayRadioButton.Location = new System.Drawing.Point(82, 18);
+            this.overlayRadioButton.Location = new System.Drawing.Point(134, 16);
             this.overlayRadioButton.Name = "overlayRadioButton";
             this.overlayRadioButton.Size = new System.Drawing.Size(71, 16);
             this.overlayRadioButton.TabIndex = 0;
@@ -153,7 +153,7 @@
             // 
             this.selectLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectLanguageComboBox.FormattingEnabled = true;
-            this.selectLanguageComboBox.Location = new System.Drawing.Point(79, 45);
+            this.selectLanguageComboBox.Location = new System.Drawing.Point(22, 74);
             this.selectLanguageComboBox.Name = "selectLanguageComboBox";
             this.selectLanguageComboBox.Size = new System.Drawing.Size(205, 20);
             this.selectLanguageComboBox.TabIndex = 1;
@@ -184,7 +184,7 @@
             // 
             this.maliciousApkTipLabel.Location = new System.Drawing.Point(28, 78);
             this.maliciousApkTipLabel.Name = "maliciousApkTipLabel";
-            this.maliciousApkTipLabel.Size = new System.Drawing.Size(473, 48);
+            this.maliciousApkTipLabel.Size = new System.Drawing.Size(473, 100);
             this.maliciousApkTipLabel.TabIndex = 1;
             this.maliciousApkTipLabel.Text = "注：恶意软件识别功能需要电脑连接网络，该功能目前尚处于实验性阶段，识别率较低，甚至出现误报。当然随着用户使用率的提高，识别率会逐渐提高。由于该功能需要使用平台去检" +
     "测，为缓解服务器压力，默认关闭此功能。";
