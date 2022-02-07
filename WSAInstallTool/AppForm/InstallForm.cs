@@ -154,6 +154,10 @@ namespace WSAInstallTool
         /// <param name="isBadApk"></param>
         private void CheckApkSafetyComplete(bool isBadApk)
         {
+            if (this.IsDisposed)
+            {
+                return;
+            }
             this.Invoke(new MethodInvoker(delegate()
             {
                 badApkPictureBox.Visible = true;

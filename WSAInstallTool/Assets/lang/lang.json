@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "name": "中国-简体中文",
+        "file": "zh_CN.json"
+    },
+    {
+        "id": 1,
+        "name": "中國-繁體中文(香港)",
+        "file": "zh_HK.json"
+    },
+    {
+        "id": 2,
+        "name": "中國-繁體中文(台灣)",
+        "file": "zh_TW.json"
+    }
+]

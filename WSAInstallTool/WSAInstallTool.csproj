@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>3185263_android_app_circle_smartphone_design_icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -144,6 +147,15 @@
     <EmbeddedResource Include="AppForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Assets\blacklist\blacklist.xyz" />
+    <None Include="Assets\install.bat" />
+    <None Include="Assets\lang\en.json" />
+    <None Include="Assets\lang\lang.json" />
+    <None Include="Assets\lang\zh_CN.json" />
+    <None Include="Assets\lang\zh_HK.json" />
+    <None Include="Assets\lang\zh_TW.json" />
+    <None Include="Assets\setting.ini" />
+    <None Include="Assets\uninstall.bat" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="3185263_android_app_circle_smartphone_design_icon.ico" />
+    <Content Include="Assets\aapt.exe" />
+    <Content Include="Assets\adb.exe" />
+    <Content Include="Assets\AdbWinApi.dll" />
+    <Content Include="Assets\AdbWinUsbApi.dll" />
+    <Content Include="Assets\ApkShellext2.dll" />
+    <Content Include="Assets\BadApk.dll" />
     <None Include="Resources\bad_apk_safety.png" />
     <None Include="Resources\bad_apk.png" />
     <None Include="Resources\setting.png" />
@@ -175,7 +193,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\icon\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>xcopy ..\..\Assets\*.*  /Y /I /E /C</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
