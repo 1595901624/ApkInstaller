@@ -409,10 +409,5 @@ namespace WSAInstallTool
             installButton.Text = LangUtil.Instance.GetAppInstall();
         }
 
-        private void packageNameLabel_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetDataObject(aaptParseUtil.GetPackageName());
-        }
-
     }
 }

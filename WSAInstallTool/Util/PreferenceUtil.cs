@@ -90,6 +90,12 @@ namespace WSAInstallTool.Util
         {
             try
             {
+                // 根据配置更新列表
+                if (!PreferenceUtil.Instance.GetScanBadApk())
+                {
+                    return;
+                }
+
                 string updateTimeStr = IniUtil.Instance.ReadSettingValue(OTHER_SECTION, UPDATE_BLACK_LIST_TIME, "0");
                 long updateTime = long.Parse(updateTimeStr);
                 if (CommonUtil.GetCurrentTimeStamps() - updateTime > 24 * 60 * 60 * 1000)

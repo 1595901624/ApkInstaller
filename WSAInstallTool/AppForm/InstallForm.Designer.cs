@@ -54,7 +54,6 @@
             this.packageNameLabel.Size = new System.Drawing.Size(77, 12);
             this.packageNameLabel.TabIndex = 0;
             this.packageNameLabel.Text = "packageName:";
-            this.packageNameLabel.Click += new System.EventHandler(this.packageNameLabel_Click);
             // 
             // versionNameLabel
             // 

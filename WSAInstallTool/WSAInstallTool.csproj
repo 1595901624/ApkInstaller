@@ -177,6 +177,7 @@
     <Content Include="Assets\AdbWinUsbApi.dll" />
     <Content Include="Assets\ApkShellext2.dll" />
     <Content Include="Assets\BadApk.dll" />
+    <Content Include="Assets\readme.txt" />
     <None Include="Resources\bad_apk_safety.png" />
     <None Include="Resources\bad_apk.png" />
     <None Include="Resources\setting.png" />
