@@ -13,5 +13,10 @@
         "id": 2,
         "name": "中國-繁體中文(台灣)",
         "file": "zh_TW.json"
+    },
+	{
+        "id": 3,
+        "name": "English",
+        "file": "en.json"
     }
 ]
