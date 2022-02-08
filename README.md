@@ -1,6 +1,6 @@
-# Apk Installer
+# Apk Installer——Apk 安装工具
 
-![](https://img.shields.io/badge/latest%20version-v1.3.0.0%20Beta-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
+![](https://img.shields.io/badge/latest%20version-v1.4.0.0%20Beta-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
 
 #### 介绍
 
@@ -35,10 +35,21 @@ Apk Installer（原名:WSAInstallTool，自1.2.3.0版本后更名）是一款Win
 * 双击APK直接安装至安卓设备[1.1.0.5]
 * 显示Apk的包名，版本号，最低支持安卓版本，大小，权限等信息[1.0.3.0]
 * 支持覆盖安装，降级安装[1.2.3.0]
+* 新增**实验室功能-恶意软件识别**[1.4.0.0]。该功能为Beta功能，如果遇到软件崩溃请停用此功能。如有误报，请提交issue或者发邮件至haoyu3@163.com
+
+![](https://gitee.com/haoyu3/photo_gallery/raw/master/rust/other/image-20220208124851234.png)
+
+开启此功能后，如果遇到恶意软件会展示**疑似恶意应用**的红色标签。正常应用会显示**安全**的绿色标签。如下图。
+
+![某恶意APP](https://gitee.com/haoyu3/photo_gallery/raw/master/rust/other/image-20220208125041089.png)
+
+![image-20220208125552323](https://gitee.com/haoyu3/photo_gallery/raw/master/rust/other/image-20220208125552323.png)
 
 #### 多语言包支持
 
 自`1.3.0.0`开始将支持多语言配置。该软件默认集成了**中国-简体中文**、**中國-繁体中文（香港）**、**中國-繁体中文（台灣）**。
+
+`1.4.0.0`新增**英文**支持。
 
 ##### 如何支持更多语言？
 
@@ -106,8 +117,15 @@ ApkShellext2
 * 支持恶意软件识别（远景计划）
 * UWP版本（远景计划）
 
+#### 开源仓库
+
+* Gitee：[ApkInstaller: windows下自动关联APK文件且双击即可安装到手机上。多个手机连接电脑时会弹窗提示选择设备。 (gitee.com)](https://gitee.com/haoyu3/wsainstall-tool)
+
+* Github：[ApkInstaller: 一款可以在Windows上双击安装APK的软件 (github.com)](https://github.com/1595901624/ApkInstaller)
+
 #### 软件下载
 
 * 通过gitee的发行版下载
+* 通过github发行版下载
 * [蓝奏云网盘下载，密码：52pj](https://wwi.lanzouj.com/b04c1p59c)
 
