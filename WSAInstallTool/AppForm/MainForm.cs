@@ -119,6 +119,7 @@ namespace WSAInstallTool
         private void uninstallButton_Click(object sender, EventArgs e)
         {
             CMDUtil.ExecBat("uninstall.bat");
+            CMDUtil.StopAdbServer(1);
             RegistryKey hklm = Registry.ClassesRoot;
             hklm.DeleteSubKeyTree(".apk", false);  //为true时，删除的注册表不存在时抛出异常；当为false时不抛出异常。
             hklm.DeleteSubKeyTree("HYWINXYZWSATOOL", false);

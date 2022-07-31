@@ -50,10 +50,12 @@ namespace WSAInstallTool
 
         private void InstallForm_Load(object sender, EventArgs e)
         {
+            // 提前开启Adb服务
+            InitAdbServer();
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"C:\Users\haoyu\Desktop\armadillo.studio_f8fe21eb.apk";
+            apkPath = @"C:\Users\luhao\Downloads\stardance_1.0.3_Beta.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
@@ -121,6 +123,12 @@ namespace WSAInstallTool
             // Hash值
             //MessageBox.Show(HashUtil.GetSha256Hash(apkPath));
         }
+
+        private void InitAdbServer()
+        {
+            ThreadPool.QueueUserWorkItem(CMDUtil.StartAdbServer);
+        }
+
 
         /* ************************************检测Apk状态 START*************************************************/
         /// <summary>
@@ -227,14 +235,24 @@ namespace WSAInstallTool
 
             string adbStartServerPattern = "\\*[\\w:; ]*";
 
-
-            string deviceResult = CMDUtil.ExecCMD("adb.exe", "devices");
-            deviceResult = deviceResult.Replace("List of devices attached", "")
-                //.Replace("* daemon not running. starting it", "")
-                //.Replace("* daemon not running; starting now at tcp:5037", "")
-                //.Replace("* daemon started successfully *", "")
-                .Trim();
-            deviceResult = Regex.Replace(deviceResult, adbStartServerPattern, "").Trim();
+            // 开启adb服务和查找设备列表分开执行
+            CMDUtil.StartAdbServer(1);
+            string cmdRunResult = CMDUtil.ExecCMD("adb.exe", "devices").Trim();
+            //deviceResult = deviceResult.Replace("List of devices attached", "")
+            //.Replace("* daemon not running. starting it", "")
+            //.Replace("* daemon not running; starting now at tcp:5037", "")
+            //.Replace("* daemon started successfully *", "")
+            //.Trim();
+            //cmdRunResult = Regex.Replace(cmdRunResult, adbStartServerPattern, "").Trim();
+            string[] splitCmdRunResult = Regex.Split(cmdRunResult, "List of devices attached");
+            Console.WriteLine("[InstallForm][installButton_Click][cmdRunResult] " + cmdRunResult);
+            if (splitCmdRunResult.Length != 2)
+            {
+                MessageBox.Show("Error:" + cmdRunResult);
+                return;
+            }
+            Console.WriteLine("[InstallForm][installButton_Click] exist devices :" + splitCmdRunResult[1].Trim());
+            string deviceResult = splitCmdRunResult[1].Trim();
             //MessageBox.Show(deviceResult);
             Debug.WriteLine("[InstallForm][installButton_Click] deviceResult = " + deviceResult);
             if (string.IsNullOrEmpty(deviceResult))
@@ -242,7 +260,7 @@ namespace WSAInstallTool
                 MessageBox.Show(LangUtil.Instance.GetNoAnyAndroidDevice());
                 return;
             }
-            string[] devices = deviceResult.Split('\n');
+            string[] devices = deviceResult.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
             // 1.只存在一台设备
             if (devices != null && devices.Length == 1)
             {
@@ -263,6 +281,7 @@ namespace WSAInstallTool
             }
             else if (devices != null && devices.Length > 1)
             {
+                Console.WriteLine("[many devices]" + devices[0] + "....." + devices[1]);
                 //2. 存在两台及以上的设备
                 List<string> devicesList = new List<string>();
                 foreach (string device in devices)

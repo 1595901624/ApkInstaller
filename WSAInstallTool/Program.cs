@@ -36,7 +36,7 @@ namespace WSAInstallTool
                 Application.Run(new MainForm());
                 //Application.Run(new InstallForm(args));
             }
-            else 
+            else
             {
                 Application.Run(new InstallForm(args));
             }

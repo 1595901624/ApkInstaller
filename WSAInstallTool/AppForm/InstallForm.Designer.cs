@@ -41,6 +41,7 @@
             this.badApkPictureBox = new System.Windows.Forms.PictureBox();
             this.settingButton = new System.Windows.Forms.Button();
             this.iconPictureBox = new System.Windows.Forms.PictureBox();
+            this.realPackageNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.badApkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -175,12 +176,22 @@
             this.iconPictureBox.TabIndex = 2;
             this.iconPictureBox.TabStop = false;
             // 
+            // realPackageNameLabel
+            // 
+            this.realPackageNameLabel.AutoSize = true;
+            this.realPackageNameLabel.Location = new System.Drawing.Point(98, 77);
+            this.realPackageNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.realPackageNameLabel.Name = "realPackageNameLabel";
+            this.realPackageNameLabel.Size = new System.Drawing.Size(0, 12);
+            this.realPackageNameLabel.TabIndex = 11;
+            // 
             // InstallForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(552, 356);
+            this.Controls.Add(this.realPackageNameLabel);
             this.Controls.Add(this.badApkPictureBox);
             this.Controls.Add(this.settingButton);
             this.Controls.Add(this.spaceLabel);
@@ -224,6 +235,7 @@
         private System.Windows.Forms.Label spaceLabel;
         private System.Windows.Forms.Button settingButton;
         private System.Windows.Forms.PictureBox badApkPictureBox;
+        private System.Windows.Forms.Label realPackageNameLabel;
     }
 }
 

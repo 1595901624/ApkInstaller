@@ -1,11 +1,11 @@
 @ECHO OFF
 ECHO #######################################################
-ECHO ##            WSA INSTALL TOOL - APK Shell Extension  2                    
+ECHO ##            ApkInstaller - APK Shell Extension  2                    
 ECHO ##                                                  
 ECHO ##           https://gitee.com/haoyu3/wsainstall-tool     
 ECHO ##        
 ECHO #######################################################
-ECHO 姝ｅ湪娉ㄩ攢APK鍥炬爣鏄剧ず鎻掍欢锛屽鏋滄姤閿欒蹇界暐鏃犺.....
+ECHO 正在注销APK图标显示插件，如果报错请忽略无视.....
 
 REM SYSTEMINFO | FIND /i "x64-based pc"
 echo %PROCESSOR_IDENTIFIER% | FIND /i "x86"

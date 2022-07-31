@@ -46,5 +46,22 @@ namespace WSAInstallTool
             Process p = Process.Start(pStartInfo);
             p.WaitForExit();
         }
+
+        /// <summary>
+        /// 开启Adb服务
+        /// </summary>
+        public static void StartAdbServer(object state)
+        {
+            Console.WriteLine("[CMDUtil][StartAdbServer] starting adb server...");
+            string result = CMDUtil.ExecCMD("adb.exe", "start-server");
+            Console.WriteLine("[CMDUtil][StartAdbServer] adb server result: " + result);
+        }
+
+        public static void StopAdbServer(object state)
+        {
+            Console.WriteLine("[CMDUtil][StopAdbServer] stoping adb server...");
+            string result = CMDUtil.ExecCMD("adb.exe", "kill-server");
+            Console.WriteLine("[CMDUtil][StopAdbServer] adb server result: " + result);
+        }
     }
 }
