@@ -1,6 +1,6 @@
-# Apk Installer——Apk 安装工具````
+# Apk Installer——Apk 安装工具
 
-![](https://img.shields.io/badge/latest%20version-v1.4.0.0%20Beta-blue.svg?style=flat)    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
+<img src="https://img.shields.io/badge/latest%20version-v1.5.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">    ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)
 
 #### 介绍
 
@@ -137,8 +137,6 @@ ApkShellext2
 * 【优化】只连接一个手机时，却弹窗提示多手机的问题
 
 * 【优化】清除卸载软件时，主动停止adb服务
-
-* 【优化】清除卸载软件后，无法删除文件夹的问题。如果依然无法删除，请重启电脑
 
 * 【优化】部分电脑已经连接了手机却提示未连接的问题
 
