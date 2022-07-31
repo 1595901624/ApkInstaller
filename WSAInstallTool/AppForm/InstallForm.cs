@@ -55,7 +55,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"C:\Users\luhao\Downloads\stardance_1.0.3_Beta.apk";
+            //apkPath = @"C:\Users\luhao\Downloads\stardance_1.0.3_Beta.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
