@@ -43,6 +43,11 @@ namespace WSAInstallTool
         {
             if (appInfo.Length == 0 || appInfoList.Length < 1) return "";
 
+            if (appInfoList[0].Contains("' platformBuildVersionName="))
+            {
+                return GetValue(appInfoList[0], "versionName='", "' platformBuildVersionName=");
+            }
+
             return GetValue(appInfoList[0], "versionName='", "' compileSdkVersion='");
         }
 

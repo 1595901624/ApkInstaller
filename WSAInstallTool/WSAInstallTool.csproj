@@ -56,6 +56,12 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>apkinstaller.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -150,6 +156,7 @@
     <EmbeddedResource Include="AppForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="apkinstaller.pfx" />
     <None Include="Assets\blacklist\blacklist.xyz" />
     <None Include="Assets\install.bat" />
     <None Include="Assets\lang\en.json" />
@@ -202,8 +209,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+"C:\Program Files\7-Zip\7z.exe" a ApkInstaller.zip *.bat *.dll *.ini *.txt lang/* blacklist/ *.exe
+)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>xcopy ..\..\Assets\*.*  /Y /I /E /C</PreBuildEvent>

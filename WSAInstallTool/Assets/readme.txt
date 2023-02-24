@@ -1,3 +1,11 @@
+【Apk Installer 1.6.0.0 2023-02-24】
+更新内容：
+1、【新增】支持显示最低版本为“Android 12L”和“Android 13”的Apk
+2、【修复】在Edge和Chrome等浏览器下载.apk/.ipa/.aapx文件时，导致浏览器Crash的问题
+3、【更新】adb 版本由 33.0.2-8557947 更新至 33.0.3-8952118
+4、【更新】aapt 版本由 v0.2-6966805 更新至 v0.2-9306103
+5、【更新】ApkShellext2 更新至 ApkShellext2_hy 3.0.0 版本
+
 【Apk Installer 1.5.0.0 2022-07-31】
 【重要】此次更新将.Net Framework 升级到了4.8，可能会影响到Windows 7 和 Windows 8 的用户，请使用上面两个系统的用户安装.Net Framework 4.8的运行时
 更新内容：

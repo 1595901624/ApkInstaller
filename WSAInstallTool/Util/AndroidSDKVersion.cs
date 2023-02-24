@@ -35,10 +35,12 @@ namespace WSAInstallTool
         public static readonly AndroidSDKVersion N2 = new AndroidSDKVersion(25, "7.1");
         public static readonly AndroidSDKVersion O1 = new AndroidSDKVersion(26, "8.0");
         public static readonly AndroidSDKVersion O2 = new AndroidSDKVersion(27, "8.1");
-        public static readonly AndroidSDKVersion P = new AndroidSDKVersion(28, "9.0");
-        public static readonly AndroidSDKVersion Q = new AndroidSDKVersion(29, "10.0");
-        public static readonly AndroidSDKVersion R = new AndroidSDKVersion(30, "11.0");
-        public static readonly AndroidSDKVersion S = new AndroidSDKVersion(31, "12.0");
+        public static readonly AndroidSDKVersion P = new AndroidSDKVersion(28, "9");
+        public static readonly AndroidSDKVersion Q = new AndroidSDKVersion(29, "10");
+        public static readonly AndroidSDKVersion R = new AndroidSDKVersion(30, "11");
+        public static readonly AndroidSDKVersion S = new AndroidSDKVersion(31, "12");
+        public static readonly AndroidSDKVersion S_V2 = new AndroidSDKVersion(32, "12L");
+        public static readonly AndroidSDKVersion TIRAMISU = new AndroidSDKVersion(33, "13");
 
         public static IEnumerable<AndroidSDKVersion> Values
         {
