@@ -1,6 +1,9 @@
 # Apk Installer
 
+<img src="https://img.shields.io/badge/latest%20version-v1.6.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)![](https://img.shields.io/badge/downloads-2,000+-brightgreen.svg?style=flat)
+
 #### Description
+
 Apk Installer (former name: WSAInstallTool, renamed since version 1.2.3.0) is a tool for Windows that automatically associates APK files and installs them on any Android device by double-clicking on them. The software can display the icon of Apk itself, a detailed list of permissions, etc.
 
 #### Software Architecture

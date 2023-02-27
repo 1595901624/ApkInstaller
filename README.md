@@ -1,6 +1,6 @@
 # Apk Installer——Apk 安装工具
 
-<img src="https://img.shields.io/badge/latest%20version-v1.6.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)![](https://img.shields.io/badge/downloads-1,000+-brightgreen.svg?style=flat)
+<img src="https://img.shields.io/badge/latest%20version-v1.6.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)![](https://img.shields.io/badge/downloads-2,000+-brightgreen.svg?style=flat)
 
 #### 介绍
 
