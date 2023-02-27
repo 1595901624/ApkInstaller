@@ -1,22 +1,31 @@
-# WSAInstallTool
+# Apk Installer
 
 #### Description
-windows下自动关联APK文件且安装到手机上
+Apk Installer (former name: WSAInstallTool, renamed since version 1.2.3.0) is a tool for Windows that automatically associates APK files and installs them on any Android device by double-clicking on them. The software can display the icon of Apk itself, a detailed list of permissions, etc.
 
 #### Software Architecture
-Software architecture description
+C# + Winform
 
 #### Installation
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+After downloading and extracting to any location, double-click **ApkInstaller.exe** The installation and uninstallation of ApkInstaller requires manipulation of the registry, please **run as administrator** this software.
+
+1.  Install: Click `Install` with one click.
+2.  Uninstall: Click  `Uninstall/Clear old version` , and then delete the folder.
 
 #### Instructions
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![image-20230227220401289](https://gitee.com/haoyu3/photo_gallery/raw/master/rust/other/202302272204389.png)
+
+* Display .Apk/.Ipa/.Appx icon
+* Automatically install it on any Android Device by double-clicking .apk file 
+* Display apk Info
+* etc
+
+#### Donate
+
+- [PayPal](https://github.com/1595901624/apkshellext/blob/ApkShellext2_hy/PayPal.Me/haoyu94)
+- AliPay Account: [1595901624@qq.com](mailto:1595901624@qq.com) 
 
 #### Contribution
 
@@ -25,12 +34,6 @@ Software architecture description
 3.  Commit your code
 4.  Create Pull Request
 
+#### Feedback
 
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+Please submit issue.
