@@ -57,7 +57,7 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>apkinstaller.pfx</AssemblyOriginatorKeyFile>
@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppForm\InstallFormPro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\InstallFormPro.Designer.cs">
+      <DependentUpon>InstallFormPro.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForm\PermissionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,7 @@
     </Compile>
     <Compile Include="AppModel\AppString.cs" />
     <Compile Include="AppModel\SupportLanguage.cs" />
+    <Compile Include="Util\ApkShellDetection.cs" />
     <Compile Include="Util\CommonUtil.cs" />
     <Compile Include="Util\LangUtil.cs" />
     <Compile Include="AppForm\SettingForm.cs">
@@ -133,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\DeviceSelectForm.resx">
       <DependentUpon>DeviceSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\InstallFormPro.resx">
+      <DependentUpon>InstallFormPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\InstallForm.resx">
       <DependentUpon>InstallForm.cs</DependentUpon>
