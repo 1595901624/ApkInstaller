@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,9 @@ namespace WSAInstallTool.AppForm
             InitInstallSuccessStatus();
             InitSelectLanguage();
             InitScanApkStatus();
+            InitWSAConnect();
+            InitWSAConnectIpAddress();
+            InitAboutPage();
 
             inited = true;
         }
@@ -155,6 +159,69 @@ namespace WSAInstallTool.AppForm
 
         }
 
-  
+        /// <summary>
+        /// 无线连接 / WSA 设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void connectCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (inited)
+            {
+                bool check = connectCheckBox.Checked;
+                Debug.WriteLine("[PreferenceUtil][connectCheckBox_CheckedChanged] " + check);
+                PreferenceUtil.Instance.SetWSAConnect(check ? 1 : 0);
+            }
+        }
+
+        private void InitWSAConnect()
+        {
+            bool check = PreferenceUtil.Instance.GetWSAConnect();
+            connectCheckBox.Checked = check;
+        }
+
+        /// <summary>
+        /// ip地址改变就保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void connectTextBox_TextChanged(object sender, EventArgs e)
+        {
+            // 127.0.0.1:58526
+            // 随时保存
+            if (!inited)
+            {
+                return;
+            }
+            PreferenceUtil.Instance.SetWSAConnectIpAddress(connectTextBox.Text.ToString().Trim());
+        }
+
+        private void InitWSAConnectIpAddress()
+        {
+            string ip = PreferenceUtil.Instance.GetWSAConnectIpAddress();
+            connectTextBox.Text = ip;
+        }
+
+        /// <summary>
+        ///  初始化关于页面
+        /// </summary>
+        private void InitAboutPage()
+        {
+            versionLabel.Text = String.Format("版本号： {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            authorLabel.Text = "作者：我是小学生";
+            githubLabel.Text = "Github：";
+            githubLinkLabel.Text = "https://github.com/1595901624/ApkInstaller";
+            giteeLinkLabel.Text = "https://gitee.com/haoyu3/wsainstall-tool/";
+        }
+
+        private void githubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/1595901624/ApkInstaller");
+        }
+
+        private void giteeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://gitee.com/haoyu3/wsainstall-tool/");
+        }
     }
 }

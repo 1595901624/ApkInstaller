@@ -55,7 +55,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            //apkPath = @"C:\Users\luhao\Downloads\stardance_1.0.3_Beta.apk";
+            apkPath = @"C:\Users\luhao\Desktop\BigBearVPN_1.6.apk";
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
@@ -237,6 +237,15 @@ namespace WSAInstallTool
 
             // 开启adb服务和查找设备列表分开执行
             CMDUtil.StartAdbServer(1);
+
+            // 如果需要连接无线设备或者WSA
+            if (PreferenceUtil.Instance.GetWSAConnect() && !string.IsNullOrEmpty(PreferenceUtil.Instance.GetWSAConnectIpAddress()))
+            {
+
+                string ipAddress = PreferenceUtil.Instance.GetWSAConnectIpAddress();
+                string cmdConnectResut = CMDUtil.ExecCMD("adb.exe", "connect " + ipAddress);
+            }
+            
             string cmdRunResult = CMDUtil.ExecCMD("adb.exe", "devices").Trim();
             //deviceResult = deviceResult.Replace("List of devices attached", "")
             //.Replace("* daemon not running. starting it", "")

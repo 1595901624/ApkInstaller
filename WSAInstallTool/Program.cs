@@ -26,21 +26,22 @@ namespace WSAInstallTool
             LangUtil.Instance.Init();
             // 更新黑名单
             PreferenceUtil.Instance.UpdateBlackListByTime();
-            if (args.Length == 0)
-            {
-                if (!IsAdministrator())
-                {
-                    MessageBox.Show(LangUtil.Instance.GetLauncherTip(), "Apk Installer", MessageBoxButtons.OK);
-                    return;
-                }
-                Application.Run(new MainForm());
-                //Application.Run(new InstallForm(args));
-            }
-            else
-            {
-                Application.Run(new InstallForm(args));
-            }
-            
+            Application.Run(new InstallForm(args));
+            //if (args.Length == 0)
+            //{
+            //    if (!IsAdministrator())
+            //    {
+            //        MessageBox.Show(LangUtil.Instance.GetLauncherTip(), "Apk Installer", MessageBoxButtons.OK);
+            //        return;
+            //    }
+            //    Application.Run(new MainForm());
+            //    //Application.Run(new InstallForm(args));
+            //}
+            //else
+            //{
+            //    Application.Run(new InstallForm(args));
+            //}
+
 
         }
 

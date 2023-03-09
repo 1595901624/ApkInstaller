@@ -33,6 +33,12 @@ namespace WSAInstallTool.Util
         // 恶意软件检测功能
         public const String SCAN_BAD_APK = "scanBadApk";
 
+        // WSA/无线连接功能
+        public const String WSA_CONNECT = "wsaConnect";
+
+        // WSA/无线连接功能 ip
+        public const String WSA_CONNECT_IP_ADDRESS = "wsaConnectIpAddress";
+
         private static PreferenceUtil _instance = null;
         private static readonly object SyncObject = new object();
 
@@ -255,6 +261,54 @@ namespace WSAInstallTool.Util
             IniUtil.Instance.WriteSettingValue(INSTALL_SECTION, INSTALL_SUCCESS_CLOSE, close.ToString());
         }
 
+        /// <summary>
+        /// 设置当前恶意APK检测的状态
+        /// </summary>
+        /// <param name="check"></param>
+        public void SetWSAConnect(int check)
+        {
+            IniUtil.Instance.WriteSettingValue(OTHER_SECTION, WSA_CONNECT, check.ToString());
+        }
+
+        /// <summary>
+        /// 获取当前恶意APK检测配置的状态
+        /// </summary>
+        /// <returns></returns>
+        public bool GetWSAConnect()
+        {
+            string result = IniUtil.Instance.ReadSettingValue(OTHER_SECTION, WSA_CONNECT, "0");
+            try
+            {
+                if ("1".Equals(result))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Write("[PreferenceUtil][GetWSAConnect] error => " + e.Message);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 设置当前恶意APK检测的状态
+        /// </summary>
+        /// <param name="check"></param>
+        public void SetWSAConnectIpAddress(string address)
+        {
+            IniUtil.Instance.WriteSettingValue(OTHER_SECTION, WSA_CONNECT_IP_ADDRESS, address);
+        }
+
+        /// <summary>
+        /// 获取当前恶意APK检测配置的状态
+        /// </summary>
+        /// <returns></returns>
+        public string GetWSAConnectIpAddress()
+        {
+            string result = IniUtil.Instance.ReadSettingValue(OTHER_SECTION, WSA_CONNECT_IP_ADDRESS, "127.0.0.1:58526");
+            return result;
+        }
 
         public enum InstallMethod
         {
