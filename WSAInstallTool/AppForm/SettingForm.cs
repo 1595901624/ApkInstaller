@@ -212,6 +212,13 @@ namespace WSAInstallTool.AppForm
             githubLabel.Text = "Github：";
             githubLinkLabel.Text = "https://github.com/1595901624/ApkInstaller";
             giteeLinkLabel.Text = "https://gitee.com/haoyu3/wsainstall-tool/";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("感谢开源软件：").Append("\n")
+                .Append("kkguo —— ApkShellExt2").Append("\n")
+                .Append("我是小学生 —— ApkShellExt2 v3.0.0").Append("\n")
+                .Append("Google —— AAPT").Append("\n")
+                .Append("Google —— ADB Shell").Append("\n");
+            thankLabel.Text = sb.ToString();
         }
 
         private void githubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
