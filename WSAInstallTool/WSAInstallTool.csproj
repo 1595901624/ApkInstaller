@@ -57,7 +57,7 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>apkinstaller.pfx</AssemblyOriginatorKeyFile>
@@ -198,6 +198,8 @@
     <Content Include="Assets\ApkShellext2.dll" />
     <Content Include="Assets\BadApk.dll" />
     <Content Include="Assets\readme.txt" />
+    <Content Include="Resources\alipay_small.jpg" />
+    <Content Include="Resources\wechat_small.jpg" />
     <None Include="Resources\bad_apk_safety.png" />
     <None Include="Resources\bad_apk.png" />
     <None Include="Resources\setting.png" />

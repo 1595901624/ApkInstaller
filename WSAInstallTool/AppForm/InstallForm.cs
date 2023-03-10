@@ -241,9 +241,8 @@ namespace WSAInstallTool
             // 如果需要连接无线设备或者WSA
             if (PreferenceUtil.Instance.GetWSAConnect() && !string.IsNullOrEmpty(PreferenceUtil.Instance.GetWSAConnectIpAddress()))
             {
-
                 string ipAddress = PreferenceUtil.Instance.GetWSAConnectIpAddress();
-                string cmdConnectResut = CMDUtil.ExecCMD("adb.exe", "connect " + ipAddress);
+                string cmdConnectResult = CMDUtil.ExecCMD("adb.exe", "connect " + ipAddress);
             }
             
             string cmdRunResult = CMDUtil.ExecCMD("adb.exe", "devices").Trim();
