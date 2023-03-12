@@ -1,6 +1,6 @@
 # Apk Installer——Apk 安装工具
 
-<img src="https://img.shields.io/badge/latest%20version-v1.6.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">  ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)  ![](https://img.shields.io/badge/downloads-2,000+-brightgreen.svg?style=flat)
+<img src="https://img.shields.io/badge/latest%20version-v1.7.0.0-blue.svg?style=flat" title="" alt="" data-align="inline">  ![](https://img.shields.io/badge/license-GPL%203.0-brightgreen.svg?style=flat)  ![](https://img.shields.io/badge/downloads-2,000+-brightgreen.svg?style=flat)
 
 #### 介绍
 
@@ -110,13 +110,13 @@ ApkShellext2
 #### 版本计划
 
 - [x] 支持APK图标显示（1.1.0.5版本已经支持）
-
 - [x] 支持Android所有权限提示（1.0.3.0版本已经支持）
-- [ ] 支持敏感权限重点提醒
 - [x] 支持多国语言（1.3.0.0 Beta）
 - [x] 支持恶意软件识别（1.5.0.0版本已经支持）
-- [ ] UWP版本（远景计划）
+- [ ] 支持敏感权限重点提醒
+- [ ] WinUI版本（远景计划）
 - [ ] 使用 Rust 重构跨平台（进行中...）
+- [ ] 支持 .aab/.apks 等文件的安装（远景计划）
 
 #### 开源仓库
 
