@@ -1,7 +1,8 @@
 【Apk Installer 1.7.0.0 2023-03-12】
 更新内容：
 1、【新增/修复】Fix#I6KDFX 增加在安装Apk前主动连接无线设备或者Windows Subsystem Android，需要在设置页主动开启
-2、【更新】aapt 版本由 aapt v0.2-6966805 更新至 aapt2 2.19-9306103
+2、【修复】1.6.0.0 版本打开某些 apk 没有任何信息显示的问题
+3、【更新】aapt 版本由 aapt v0.2-6966805 更新至 aapt2 2.19-9306103
 
 
 【Apk Installer 1.6.0.0 2023-02-24】
