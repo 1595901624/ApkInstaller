@@ -55,7 +55,7 @@ namespace WSAInstallTool
             InitLanguage();
             Console.WriteLine("dir == " + Environment.CurrentDirectory);
             //MessageBox.Show("" + System.Threading.Thread.GetDomain().BaseDirectory);
-            apkPath = @"C:\Users\luhao\Desktop\BigBearVPN_1.6.apk";
+
             if (args != null && args.Length > 0)
             {
                 apkPath = args[0];
@@ -63,7 +63,7 @@ namespace WSAInstallTool
 
             //string apkPath = "C:\\Users\\haoyu\\Desktop\\106_f0c49f2b285b39d89d87a3c5747ea155.apk";
 
-            string result = CMDUtil.ExecCMD("aapt.exe", "dump badging \"" + apkPath + "\"");
+            string result = CMDUtil.ExecCMD("aapt2.exe", "dump badging \"" + apkPath + "\"");
 
             aaptParseUtil = new AAPTParseUtil(result);
 

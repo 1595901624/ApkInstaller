@@ -216,7 +216,7 @@ namespace WSAInstallTool.AppForm
             sb.Append("感谢开源软件：").Append("\n")
                 .Append("kkguo —— ApkShellExt2").Append("\n")
                 .Append("我是小学生 —— ApkShellExt2 v3.0.0").Append("\n")
-                .Append("Google —— AAPT").Append("\n")
+                .Append("Google —— AAPT2").Append("\n")
                 .Append("Google —— ADB Shell").Append("\n");
             thankLabel.Text = sb.ToString();
         }

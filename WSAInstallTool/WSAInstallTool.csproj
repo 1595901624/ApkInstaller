@@ -191,7 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="3185263_android_app_circle_smartphone_design_icon.ico" />
-    <Content Include="Assets\aapt.exe" />
+    <Content Include="Assets\aapt2.exe" />
     <Content Include="Assets\adb.exe" />
     <Content Include="Assets\AdbWinApi.dll" />
     <Content Include="Assets\AdbWinUsbApi.dll" />
